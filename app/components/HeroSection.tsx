@@ -30,7 +30,7 @@ export default function HeroSection({
         </div>
 
         <p className="text-base md:text-lg text-white leading-relaxed">
-          Hire professionals for private, corporate, and logistics needs.
+          Hire professional drivers in lagos for private, corporate, and logistics needs.
           <span className="block mt-2 font-semibold text-yellow-400">
             Safety · Reliability · Excellence
           </span>
@@ -53,23 +53,21 @@ export default function HeroSection({
 
         <div className="flex items-center gap-3 pt-3 justify-center md:justify-start">
           <div className="flex -space-x-2">
-            {[
-              "960x0.webp",
-              "180820-hodge-mn-1115.webp",
-              "istockphoto-981750034-612x612.jpg",
-            ].map((img, idx) => (
-              <div
-                key={idx}
-                className="relative w-8 h-8 rounded-full border-2 border-yellow-300 overflow-hidden"
-              >
-                <Image
-                  src={`/${img}`}
-                  alt={`Happy client ${idx + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
+            {["960x0.webp", "180820-hodge-mn-1115.webp", "jenny.png"].map(
+              (img, idx) => (
+                <div
+                  key={idx}
+                  className="relative w-8 h-8 rounded-full border-2 border-yellow-300 overflow-hidden"
+                >
+                  <Image
+                    src={`/${img}`}
+                    alt={`Happy client ${idx + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )
+            )}
           </div>
           <p className="text-xs text-yellow-400">
             <span className="font-bold text-yellow-300">200+</span> happy

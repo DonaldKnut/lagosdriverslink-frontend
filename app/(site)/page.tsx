@@ -1,6 +1,5 @@
 // pages/index.tsx
 import FAQ from "../components/FAQ";
-import FeaturedDrivers from "../components/FeaturedDrivers";
 import HeroSection from "../components/HeroSection";
 import Testimonials from "../components/Testimonials";
 import { sanityClient } from "@/lib/sanity";
@@ -8,6 +7,7 @@ import { HOMEPAGE_QUERY } from "@/lib/queries";
 import HirePlansSection from "../components/HirePlansSection";
 import WhatsAppFloatingButton from "../components/WhatsAppFloatingButton";
 import { HomepageData } from "@/types/homepage";
+import { DriverHeroPromo } from "../components/DriverHeroPromo";
 
 // Fallback image
 const BASE_URL = process.env.NEXTAUTH_URL || "https://lagosdriverslink.com";
@@ -53,7 +53,7 @@ export default async function HomePage() {
         ctaText={data.ctaText ?? "Book a Driver"}
         ctaLink={data.ctaLink ?? "/hire"}
       />
-      <FeaturedDrivers />
+      <DriverHeroPromo />
       <HirePlansSection />
       <Testimonials />
       <FAQ />

@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import {
   Facebook,
   Twitter,
@@ -57,18 +57,27 @@ export default function PremiumFooter() {
   ];
 
   return (
-    <footer className="bg-black text-white pt-16 pb-8 px-6 sm:px-12 md:px-20">
-      <div className="max-w-7xl mx-auto">
+    <footer className="bg-black text-white pt-16 pb-8">
+      <div className="w-[85%] mx-auto">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
           {/* Logo and Social */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-white mb-6">
-              Lagos<span className="text-yellow-500">Drivers</span>Link
-            </h2>
-            <p className="text-gray-300 mb-6">
-              Connecting you with trusted professional drivers in Lagos since
-              2023.
+            <Link
+              href="/"
+              className="flex items-center w-[120px] h-[80px] relative"
+            >
+              <Image
+                src="/ldl_logo.png"
+                alt="Lagos Drivers Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </Link>
+            <p className="text-gray-300 mb-6 mt-6">
+              Connecting you with trusted professional <br /> drivers in Lagos
+              since 2025.
             </p>
             <div className="flex space-x-4">
               <a

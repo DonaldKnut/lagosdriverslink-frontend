@@ -1,207 +1,187 @@
-// app/(site)/drivers/page.tsx OR app/drivers/page.tsx
 "use client";
 
-import { sanityClient } from "@/lib/sanity";
-import { GET_ALL_DRIVERS } from "@/lib/queries";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import {
-  Star,
-  MapPin,
-  CheckCircle2,
-  XCircle,
   Search,
-  Filter,
+  ShieldCheck,
+  BadgeCheck,
+  Clock,
+  Star,
+  Users,
 } from "lucide-react";
-import { useState, useEffect } from "react";
-
-type Driver = {
-  _id: string;
-  name: string;
-  experience: number;
-  location: string;
-  bio: string;
-  category: string;
-  availability: boolean;
-  rating: number;
-  photo: string;
-  languages?: string[];
-  vehicleType?: string;
-};
 
 export default function DriversPage() {
-  const [drivers, setDrivers] = useState<Driver[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
+  const stats = [
+    {
+      value: "1000+",
+      label: "Verified Drivers",
+      icon: <BadgeCheck className="h-8 w-8" />,
+    },
+    {
+      value: "24/7",
+      label: "Availability",
+      icon: <Clock className="h-8 w-8" />,
+    },
+    {
+      value: "4.9",
+      label: "Average Rating",
+      icon: <Star className="h-8 w-8" />,
+    },
+    {
+      value: "50+",
+      label: "Locations Covered",
+      icon: <Users className="h-8 w-8" />,
+    },
+  ];
 
-  useEffect(() => {
-    const fetchDrivers = async () => {
-      try {
-        const data = await sanityClient.fetch(GET_ALL_DRIVERS);
-        setDrivers(data);
-      } catch (error) {
-        console.error("Error fetching drivers:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDrivers();
-  }, []);
-
-  const filteredDrivers = drivers.filter(
-    (driver) =>
-      driver.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const features = [
+    {
+      title: "Thoroughly Vetted",
+      description:
+        "Every driver undergoes comprehensive background checks and verification.",
+      icon: <ShieldCheck className="h-6 w-6 text-yellow-500" />,
+    },
+    {
+      title: "Professional Training",
+      description:
+        "Certified drivers with defensive driving and customer service training.",
+      icon: <BadgeCheck className="h-6 w-6 text-yellow-500" />,
+    },
+    {
+      title: "Flexible Options",
+      description: "Choose from hourly, daily, or long-term driver solutions.",
+      icon: <Clock className="h-6 w-6 text-yellow-500" />,
+    },
+  ];
 
   return (
-    <div className="flex-1 overflow-y-auto">
-      {/* Header */}
-      <header className="bg-gray-900 border-b border-gray-800 p-6">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold text-white">Driver Management</h1>
-          <p className="text-gray-400 mt-2">
-            Browse and manage your professional drivers
-          </p>
-        </div>
-      </header>
+    <div className="bg-gray-50 min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white py-20 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-6xl font-bold mb-6"
+          >
+            Access Our Network of <span className="text-yellow-400">1000+</span>{" "}
+            Professional Drivers
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-10"
+          >
+            Verified, trained, and ready to serve your transportation needs
+            across multiple locations.
+          </motion.p>
 
-      {/* Content */}
-      <main className="p-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="max-w-2xl mx-auto relative"
+          >
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search by location or service type..."
+              className="w-full bg-gray-800 border border-gray-700 rounded-full px-6 py-4 pl-14 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            />
+            <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium px-6 py-2 rounded-full transition-colors">
+              Find Drivers
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* Search and Filter Bar */}
-          <div className="mb-8 flex flex-col md:flex-row gap-4">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-              <input
-                type="text"
-                placeholder="Search drivers by name, location or category..."
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 pl-10 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            <button className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white px-4 py-2 rounded-lg transition-colors">
-              <Filter className="h-5 w-5" />
-              Filters
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-gray-50 p-8 rounded-xl border border-gray-200 text-center"
+              >
+                <div className="flex justify-center text-yellow-500 mb-4">
+                  {stat.icon}
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                  {stat.value}
+                </h3>
+                <p className="text-gray-600">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Our Professional Drivers
+            </h2>
+            <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our drivers are more than just chauffeurs &mdash; they&apos;re
+              trained professionals dedicated to your safety and comfort.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="bg-yellow-50 p-2 rounded-full mr-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {feature.title}
+                  </h3>
+                </div>
+                <p className="text-gray-600">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-6 bg-gradient-to-r from-yellow-500 to-yellow-600">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Find Your Perfect Driver?
+          </h2>
+          <p className="text-xl text-yellow-100 mb-8">
+            Join thousands of satisfied clients who trust our professional
+            driver network.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-yellow-700 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors">
+              Request a Driver Now
+            </button>
+            <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-yellow-700 font-bold px-8 py-4 rounded-lg transition-colors">
+              Learn More
             </button>
           </div>
-
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h3 className="text-gray-400 text-sm font-medium">
-                Total Drivers
-              </h3>
-              <p className="text-3xl font-bold text-white mt-2">
-                {drivers.length}
-              </p>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h3 className="text-gray-400 text-sm font-medium">
-                Available Now
-              </h3>
-              <p className="text-3xl font-bold text-white mt-2">
-                {drivers.filter((d) => d.availability).length}
-              </p>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h3 className="text-gray-400 text-sm font-medium">
-                Average Rating
-              </h3>
-              <p className="text-3xl font-bold text-white mt-2">
-                {drivers.length > 0
-                  ? (
-                      drivers.reduce((acc, d) => acc + d.rating, 0) /
-                      drivers.length
-                    ).toFixed(1)
-                  : "0.0"}
-              </p>
-            </div>
-          </div>
-
-          {/* Drivers Grid */}
-          {loading ? (
-            <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredDrivers.map((driver) => (
-                <div
-                  key={driver._id}
-                  className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="relative h-48 bg-gray-700">
-                    <Image
-                      src={driver.photo}
-                      alt={driver.name}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                    <div className="absolute bottom-4 left-4 flex items-center space-x-2">
-                      <div
-                        className={`p-1.5 rounded-full ${
-                          driver.availability ? "bg-green-500" : "bg-red-500"
-                        }`}
-                      >
-                        {driver.availability ? (
-                          <CheckCircle2 className="h-4 w-4 text-white" />
-                        ) : (
-                          <XCircle className="h-4 w-4 text-white" />
-                        )}
-                      </div>
-                      <span className="text-sm font-medium text-white">
-                        {driver.availability ? "Available" : "Unavailable"}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="text-xl font-bold">{driver.name}</h3>
-                      <div className="flex items-center bg-yellow-500/10 px-2 py-1 rounded">
-                        <Star className="h-4 w-4 text-yellow-500 mr-1" />
-                        <span className="font-bold text-yellow-500">
-                          {driver.rating.toFixed(1)}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center text-gray-400 mb-4">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      <span>{driver.location}</span>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
-                        {driver.category}
-                      </span>
-                      <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
-                        {driver.experience} years exp
-                      </span>
-                      {driver.vehicleType && (
-                        <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
-                          {driver.vehicleType}
-                        </span>
-                      )}
-                    </div>
-
-                    <p className="text-gray-300 text-sm mb-6 line-clamp-2">
-                      {driver.bio}
-                    </p>
-
-                    <button className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold py-2 px-4 rounded-lg transition-all duration-300">
-                      Hire Driver
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
-      </main>
+      </section>
     </div>
   );
 }

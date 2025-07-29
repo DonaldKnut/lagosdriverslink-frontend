@@ -7,14 +7,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Olumide A.",
+    name: "Tehilah A.",
     role: "Lagos Business Owner",
     quote:
       "Hiring a driver has never been this seamless. The professionalism was top-notch.",
     photo: "/Fanta_blog_2020-08-28-Traore-29-Edit-800x533.jpg",
   },
   {
-    name: "Sarah K.",
+    name: "Manny K.",
     role: "Event Planner",
     quote:
       "I needed a reliable chauffeur for a wedding — LagosDriversLink.com came through big time!",
