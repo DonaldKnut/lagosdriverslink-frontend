@@ -4,7 +4,7 @@ import { Car, ShieldCheck, Clock, Star, Zap, BadgeCheck } from "lucide-react";
 
 export function DriverHeroPromo() {
   return (
-    <section className="min-h-[90vh] bg-gradient-to-br from-gray-900 to-gray-800 text-white px-6 sm:px-12 md:px-16 lg:px-24 py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+    <section className="min-h-[90vh] bg-black text-white px-6 sm:px-12 md:px-16 lg:px-24 py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
       {/* Left: Promo Content */}
       <div className="max-w-2xl space-y-6">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
@@ -111,7 +111,7 @@ export function DriverHeroPromo() {
         {/* Main image with badge */}
         <div className="relative z-10">
           <Image
-            src="/premium-driver-service.jpg"
+            src="/9c450f1f-9556-45a3-b13d-9912c29dff17.jpeg"
             alt="Professional chauffeur service"
             width={600}
             height={600}
