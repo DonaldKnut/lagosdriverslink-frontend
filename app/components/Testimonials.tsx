@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -7,32 +6,54 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Tehilah A.",
-    role: "Lagos Business Owner",
+    name: "Tehilah Adekunle",
+    role: "Restaurant Owner, Victoria Island",
     quote:
-      "Hiring a driver has never been this seamless. The professionalism was top-notch.",
+      "As a business owner who's always on the road, I needed someone reliable. My LagosDriversLink chauffeur arrives 15 minutes early every single day - rain or shine!",
     photo: "/Fanta_blog_2020-08-28-Traore-29-Edit-800x533.jpg",
   },
   {
-    name: "Manny K.",
-    role: "Event Planner",
+    name: "Emmanuel Kalu",
+    role: "Wedding Planner, Lekki",
     quote:
-      "I needed a reliable chauffeur for a wedding — LagosDriversLink.com came through big time!",
+      "For high-profile weddings, transportation can make or break the experience. LagosDriversLink provided discreet, professional chauffeurs who handled our VIP guests perfectly.",
     photo: "/360_F_246149382_KHkt8Mw8pptlmVuiqmhavvHBC4SEqBu1.jpg",
   },
   {
-    name: "Tolu A.",
-    role: "Corporate HR",
+    name: "Tolulope Adebayo",
+    role: "HR Director, Fortune 500 Company",
     quote:
-      "We now outsource all our office drivers via this platform. Safe, smart, experienced guys.",
+      "We've reduced our transportation costs by 40% while improving service quality. The verification process gives us peace of mind for our executives' safety.",
     photo: "/rose.jpeg",
   },
   {
-    name: "Godman A.",
-    role: "Corporate HR",
+    name: "Chidinma Okoro",
+    role: "Medical Doctor, Ikoyi",
     quote:
-      "We now outsource all our office drivers via this platform. Safe, smart, experienced guys.",
+      "After night shifts at the hospital, I can't risk driving tired. My assigned driver knows all the quick routes home and even remembers my preferred AC temperature!",
     photo: "/istockphoto-1081381240-612x612.jpg",
+  },
+  {
+    name: "Obinna Eze",
+    role: "Diplomat, Lagos Island",
+    quote:
+      "Security and discretion are paramount in my line of work. The drivers understand protocol and handle sensitive situations with utmost professionalism.",
+    photo: "/200603_gma_digital_lessons_hpMain_1x1_992.jpg",
+  },
+  {
+    name: "Amina Mohammed",
+    role: "Bank Executive, Ajah",
+    quote:
+      "I've been using the corporate plan for 2 years now. The consistent quality means I never have to worry about transportation for important client meetings.",
+    photo:
+      "/portrait-of-a-confident-young-black-man-for-lifestyle-or-fashion-marketing-free-photo",
+  },
+  {
+    name: "Segun Olawale",
+    role: "Tour Operator, Ikeja",
+    quote:
+      "My tourism business depends on reliable transportation. With LagosDriversLink, I can focus on my clients knowing the driving is in expert hands.",
+    photo: "/11776683.webp",
   },
 ];
 
@@ -64,10 +85,10 @@ export default function Testimonials() {
   const currentTestimonial = testimonials[index];
 
   return (
-    <section className="bg-gradient-to-b from-black to-gray-900 py-24 px-6 sm:px-12 md:px-20">
+    <section className="bg-black py-24 px-6 sm:px-12 md:px-20">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white">
-          Trusted by <span className="text-yellow-500">Lagos Elite</span>
+          Voices of <span className="text-yellow-500">Trust</span>
         </h2>
 
         <div className="relative h-[460px] md:h-[520px]">
@@ -98,7 +119,7 @@ export default function Testimonials() {
               className="absolute inset-0 flex items-center justify-center"
             >
               <div className="w-full">
-                <div className="bg-gradient-to-br from-gray-800 to-black border border-yellow-500/30 p-8 md:p-12 rounded-3xl shadow-2xl shadow-yellow-500/20 w-full max-w-3xl mx-auto transform hover:scale-105 transition-transform duration-300">
+                <div className="bg-black border border-yellow-500/30 p-8 md:p-12 rounded-3xl shadow-2xl shadow-yellow-500/20 w-full max-w-3xl mx-auto transform hover:scale-[1.02] transition-transform duration-300">
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="relative w-36 h-36 flex-shrink-0 group">
                       <Image
@@ -111,7 +132,7 @@ export default function Testimonials() {
                     </div>
                     <div className="text-center md:text-left">
                       <p className="text-lg md:text-xl italic text-gray-200 mb-6 leading-relaxed">
-                        “{currentTestimonial.quote}”
+                        &ldquo;{currentTestimonial.quote}&rdquo;
                       </p>
                       <div>
                         <div className="font-bold text-2xl text-yellow-500 tracking-tight">

@@ -16,7 +16,10 @@ const RecruitPage = () => {
           name="keywords"
           content="driver recruitment, hire drivers, driver hiring Nigeria, chauffeur recruitment, driving jobs"
         />
-        <meta property="og:url" content="https://drivepro.ng/recruit" />
+        <meta
+          property="og:url"
+          content="https://lagosdriverslink.com/recruit"
+        />
         <meta property="og:image" content="/og-image.jpg" />
       </Head>
 
@@ -33,7 +36,7 @@ const RecruitPage = () => {
           </p>
           <div className="relative h-96 w-full rounded-2xl overflow-hidden border-2 border-yellow-500/20">
             <Image
-              src="/istockphoto-1218844586-612x612.jpg"
+              src="/Whisk_a454587641.jpg"
               alt="Recruit a driver"
               fill
               className="object-cover"

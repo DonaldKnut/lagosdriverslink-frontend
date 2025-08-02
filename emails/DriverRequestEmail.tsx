@@ -30,7 +30,7 @@ export default function DriverRequestEmail({
   return (
     <Html>
       <Head />
-      <Preview>New Driver Request Submitted - LagosDriversLink</Preview>
+      <Preview>New Driver Request Submitted </Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Header */}

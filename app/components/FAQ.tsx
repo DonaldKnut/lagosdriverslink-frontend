@@ -3,27 +3,28 @@
 import { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const faqs = [
   {
     question: "How do I hire a driver?",
     answer:
-      'Simply click "Browse Drivers", choose a profile that fits your need, and follow the prompt to hire or request more details.',
+      "Click on the &quot;Need a Driver?&quot; button on our homepage, select your preferred package, and complete the booking form.",
   },
   {
     question: "Are drivers background checked?",
     answer:
-      "Yes. All drivers go through identity verification, road tests, and NDLEA clearance before they&rsquo;re listed on our platform.",
+      "Yes. All drivers undergo thorough identity verification, road tests, and provide official police clearance reports with full background checks.",
+  },
+  {
+    question: "What&apos;s special about your Spy Police Drivers?",
+    answer:
+      "Our elite Spy Police Drivers are specially trained professionals with law enforcement backgrounds. They offer discreet, secure transportation with tactical driving skills and emergency response training - perfect for executives and high-profile individuals.",
   },
   {
     question: "Can I book a driver for short-term gigs?",
     answer:
       "Absolutely! Whether for a day, weekend, or month — you can book based on your timeline.",
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "We accept all major credit cards, bank transfers, and USSD payments for your convenience.",
   },
 ];
 
@@ -114,10 +115,9 @@ export default function FAQ() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div
-                      className="px-8 pb-6 ml-16 text-gray-600 dark:text-gray-300"
-                      dangerouslySetInnerHTML={{ __html: faq.answer }}
-                    />
+                    <div className="px-8 pb-6 ml-16 text-gray-600 dark:text-gray-300">
+                      {faq.answer}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -134,9 +134,11 @@ export default function FAQ() {
           <p className="text-gray-500 dark:text-gray-400 mb-6">
             Still have questions? We&apos;re here to help.
           </p>
-          <button className="px-8 py-3.5 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
-            Contact Our Support Team
-          </button>
+          <Link href="/hire">
+            <button className="px-8 py-3.5 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer">
+              Need a Driver? Book Now
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

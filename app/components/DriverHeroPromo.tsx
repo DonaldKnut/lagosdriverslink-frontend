@@ -3,6 +3,13 @@ import Image from "next/image";
 import { Car, ShieldCheck, Clock, Star, Zap, BadgeCheck } from "lucide-react";
 
 export function DriverHeroPromo() {
+  // Client images that can be easily substituted
+  const clientImages = [
+    "/close-portrait-happy-black-man-600nw-151566872.webp",
+    "/smiling-cheerful-young-adult-african-600nw-1850821510.webp",
+    "/istockphoto-1394347322-612x612.jpg",
+  ];
+
   return (
     <section className="min-h-[90vh] bg-black text-white px-6 sm:px-12 md:px-16 lg:px-24 py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
       {/* Left: Promo Content */}
@@ -30,7 +37,7 @@ export function DriverHeroPromo() {
           {[
             {
               icon: <ShieldCheck className="h-5 w-5" />,
-              text: "Fully Vetted Professionals",
+              text: "Fully Vetted Professional Drivers",
             },
             {
               icon: <Star className="h-5 w-5" />,
@@ -72,14 +79,14 @@ export function DriverHeroPromo() {
         {/* Trust Indicators */}
         <div className="flex items-center gap-4 pt-8">
           <div className="flex -space-x-3">
-            {[1, 2, 3].map((i) => (
+            {clientImages.map((img, index) => (
               <div
-                key={i}
+                key={index}
                 className="relative w-10 h-10 rounded-full border-2 border-yellow-300 overflow-hidden"
               >
                 <Image
-                  src={`/client-${i}.jpg`}
-                  alt={`Happy client ${i}`}
+                  src={img}
+                  alt={`Happy client ${index + 1}`}
                   fill
                   className="object-cover"
                 />
@@ -111,7 +118,7 @@ export function DriverHeroPromo() {
         {/* Main image with badge */}
         <div className="relative z-10">
           <Image
-            src="/9c450f1f-9556-45a3-b13d-9912c29dff17.jpeg"
+            src="/professional-driver-service.webp"
             alt="Professional chauffeur service"
             width={600}
             height={600}

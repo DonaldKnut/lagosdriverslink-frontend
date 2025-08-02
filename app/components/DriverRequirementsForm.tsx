@@ -149,7 +149,7 @@ export default function DriverRequirementsForm({
         <div className="space-y-2">
           <label className="text-yellow-300 font-medium flex items-center gap-2">
             <Clock className="w-4 h-4" />
-            Daily Start Time
+            Daily Resumption Time
           </label>
           <input
             name="resumptionTime"
@@ -163,7 +163,7 @@ export default function DriverRequirementsForm({
         <div className="space-y-2">
           <label className="text-yellow-300 font-medium flex items-center gap-2">
             <Clock className="w-4 h-4" />
-            Daily End Time
+            Daily Closing Time
           </label>
           <input
             name="closingTime"

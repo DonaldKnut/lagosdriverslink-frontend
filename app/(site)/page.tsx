@@ -8,6 +8,7 @@ import HirePlansSection from "../components/HirePlansSection";
 import WhatsAppFloatingButton from "../components/WhatsAppFloatingButton";
 import { HomepageData } from "@/types/homepage";
 import { DriverHeroPromo } from "../components/DriverHeroPromo";
+import FreerowSection from "../components/FreerowSection";
 
 // Fallback image
 const BASE_URL = process.env.NEXTAUTH_URL || "https://lagosdriverslink.com";
@@ -42,17 +43,28 @@ export default async function HomePage() {
     );
   }
 
+  // Common props for both HeroSection and FreerowSection
+  const heroProps = {
+    heroTitle: data.heroTitle ?? "Hire Verified Drivers in Lagos",
+    heroSubtitle:
+      data.heroSubtitle ?? "Pre-vetted professionals for all driving needs",
+    heroImage: data.heroImage?.asset?.url ?? `${BASE_URL}/ldl_logo.png`,
+    ctaText: data.ctaText ?? "Book a Driver",
+    ctaLink: data.ctaLink ?? "/hire",
+  };
+
+  const freerowProps = {
+    heroTitle: "Hire Verified Drivers in Lagos",
+    heroSubtitle: "Pre-vetted professionals for all driving needs",
+    heroImage: data.heroImage?.asset?.url ?? `${BASE_URL}/ldl_logo.png`,
+    ctaText: data.ctaText ?? "Book a Driver",
+    ctaLink: data.ctaLink ?? "/hire",
+  };
+
   return (
     <div>
-      <HeroSection
-        heroTitle={data.heroTitle ?? "Hire Verified Drivers in Lagos"}
-        heroSubtitle={
-          data.heroSubtitle ?? "Pre-vetted professionals for all driving needs"
-        }
-        heroImage={data.heroImage?.asset?.url ?? `${BASE_URL}/ldl_logo.png`}
-        ctaText={data.ctaText ?? "Book a Driver"}
-        ctaLink={data.ctaLink ?? "/hire"}
-      />
+      <HeroSection {...heroProps} />
+      <FreerowSection {...freerowProps} />
       <DriverHeroPromo />
       <HirePlansSection />
       <Testimonials />
