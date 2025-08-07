@@ -30,6 +30,7 @@ export default function PersonalDetailsForm({
         <div className="space-y-2">
           <label className="block text-yellow-300 font-medium">Full Name</label>
           <input
+            required
             name="fullName"
             type="text"
             value={data.fullName}
@@ -44,6 +45,7 @@ export default function PersonalDetailsForm({
             Email Address
           </label>
           <input
+            required
             name="emailAddress"
             type="email"
             value={data.emailAddress}
@@ -58,6 +60,7 @@ export default function PersonalDetailsForm({
             Phone Number
           </label>
           <input
+            required
             name="phoneNumber"
             type="tel"
             value={data.phoneNumber}

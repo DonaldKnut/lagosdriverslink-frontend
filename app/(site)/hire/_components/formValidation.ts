@@ -3,15 +3,18 @@ import { FormDataType } from "./useFormData";
 // Validation rules for each section
 export const validationRules = {
   personal: (data: FormDataType) => {
-    const { emailAddress, phoneNumber, maritalStatus } =
+    const { fullName, emailAddress, phoneNumber, maritalStatus } =
       data.personalDetails;
 
     const errors: string[] = [];
 
-    // Only validate marital status as required
+    // Essential contact information is required
+    if (!fullName.trim()) errors.push("Please enter your full name");
+    if (!emailAddress.trim()) errors.push("Please enter your email address");
+    if (!phoneNumber.trim()) errors.push("Please enter your phone number");
     if (!maritalStatus) errors.push("Please select your marital status");
 
-    // Email validation (only if provided)
+    // Email validation
     if (emailAddress && emailAddress.trim()) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailAddress)) {
@@ -19,7 +22,7 @@ export const validationRules = {
       }
     }
 
-    // Phone validation (only if provided)
+    // Phone validation
     if (phoneNumber && phoneNumber.trim()) {
       const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
       if (!phoneRegex.test(phoneNumber)) {
