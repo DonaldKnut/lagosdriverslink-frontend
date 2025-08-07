@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { User, Calendar, DollarSign, Clock } from "lucide-react";
+import { User, Calendar, Clock } from "lucide-react";
 
 // Define the shape of the data prop
 interface DriverRequirements {
@@ -7,7 +7,6 @@ interface DriverRequirements {
   contractDuration: string;
   salaryPackage: string;
   workSchedule: string;
-  accommodationProvided: string;
   dutiesDescription: string;
   resumptionDate: string;
   resumptionTime: string;
@@ -80,19 +79,7 @@ export default function DriverRequirementsForm({
             <option value="permanent">Permanent</option>
           </select>
         </div>
-        <div className="space-y-2">
-          <label className="text-yellow-300 font-medium flex items-center gap-2">
-            <DollarSign className="w-4 h-4" />
-            Salary Package (Minimum - Monthly)
-          </label>
-          <input
-            name="salaryPackage"
-            type="text"
-            value={`₦${parseInt(data.salaryPackage).toLocaleString()}`}
-            readOnly
-            className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-yellow-600/30 text-white focus:outline-none transition-all"
-          />
-        </div>
+
         <div className="space-y-2">
           <label className="block text-yellow-300 font-medium">
             Work Schedule
@@ -117,21 +104,7 @@ export default function DriverRequirementsForm({
             </option>
           </select>
         </div>
-        <div className="space-y-2">
-          <label className="block text-yellow-300 font-medium">
-            Accommodation Provided?
-          </label>
-          <select
-            name="accommodationProvided"
-            value={data.accommodationProvided}
-            onChange={handleInputChange}
-            className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-yellow-600/30 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
-          >
-            <option value="no">No Accommodation</option>
-            <option value="yes">Full Accommodation</option>
-            <option value="partial">Partial/Allowance</option>
-          </select>
-        </div>
+
         <div className="space-y-2">
           <label className="text-yellow-300 font-medium flex items-center gap-2">
             <Calendar className="w-4 h-4" />

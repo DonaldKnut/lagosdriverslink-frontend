@@ -4,7 +4,6 @@ import { Home, Briefcase } from "lucide-react";
 interface AddressInformation {
   homeAddress: string;
   officeAddress: string;
-  regularPickupLocations: string;
 }
 
 interface AddressInformationFormProps {
@@ -52,19 +51,6 @@ export default function AddressInformationForm({
             onChange={handleInputChange}
             className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-yellow-600/30 text-white placeholder:text-yellow-200/50 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
             placeholder="Your office address"
-          />
-        </div>
-        <div className="space-y-2 md:col-span-2">
-          <label className="block text-yellow-300 font-medium">
-            Regular Pickup Locations
-          </label>
-          <textarea
-            name="regularPickupLocations"
-            value={data.regularPickupLocations}
-            onChange={handleInputChange}
-            rows={3}
-            className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-yellow-600/30 text-white placeholder:text-yellow-200/50 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
-            placeholder="List regular pickup locations (schools, clubs, other frequent destinations)"
           />
         </div>
       </div>

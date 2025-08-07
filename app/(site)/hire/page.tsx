@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { CheckCircle, SendHorizontal } from "lucide-react";
 import PersonalDetailsForm from "@/app/components/PersonalDetailsForm";
 import DriverRequirementsForm from "@/app/components/DriverRequirementsForm";
 import VehicleDetailsForm from "@/app/components/VehicleDetailsForm";
 import AddressInformationForm from "@/app/components/AddressInformationForm";
 import FormNavigation from "./_components/FormNavigation";
+import ValidationErrors from "./_components/ValidationErrors";
 import useFormData, { FormDataType } from "./_components/useFormData";
+import { getSectionStatus } from "./_components/formValidation";
 
 type FormSection = "personal" | "driver" | "vehicle" | "address";
 
@@ -23,12 +25,30 @@ export default function HireDriverPage() {
   const { formData, handleInputChange } = useFormData();
   const { isSubmitted, isLoading, handleFormSubmit } = useFormSubmission();
 
-  const formSections: FormSection[] = [
-    "personal",
-    "driver",
-    "vehicle",
-    "address",
-  ];
+  // Get validation status for current section
+  const sectionStatus = getSectionStatus(formData);
+  const currentSectionValidation = sectionStatus[activeSection];
+
+  const formSections: FormSection[] = useMemo(
+    () => ["personal", "driver", "vehicle", "address"],
+    []
+  );
+
+  // Auto-advance to next section when current section is completed
+  useEffect(() => {
+    if (currentSectionValidation.isValid && activeSection !== "address") {
+      const currentIndex = formSections.findIndex(
+        (section) => section === activeSection
+      );
+      if (currentIndex < formSections.length - 1) {
+        // Add a small delay for better UX
+        const timer = setTimeout(() => {
+          setActiveSection(formSections[currentIndex + 1]);
+        }, 500);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [currentSectionValidation.isValid, activeSection, formSections]);
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-zinc-900 to-black text-white py-24 px-6 sm:px-12">
@@ -38,10 +58,29 @@ export default function HireDriverPage() {
             Professional Driver Request Form
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-yellow-600 to-yellow-400 mx-auto mb-6 rounded-full" />
-          <p className="text-yellow-200 max-w-2xl mx-auto text-lg">
+          <p className="text-yellow-200 max-w-2xl mx-auto text-lg mb-8">
             Complete this form to get matched with a vetted professional driver
             within 24 hours
           </p>
+
+          {/* Progress indicator */}
+          <div className="max-w-md mx-auto">
+            <div className="flex justify-between text-sm text-yellow-300 mb-2">
+              <span>Form Progress</span>
+              <span>
+                {Object.values(sectionStatus).filter((s) => s.isValid).length}{" "}
+                of 4 sections complete
+              </span>
+            </div>
+            <div className="w-full bg-zinc-800 rounded-full h-2">
+              <div
+                className="bg-gradient-to-r from-yellow-500 to-yellow-600 h-2 rounded-full transition-all duration-500"
+                style={{
+                  width: `${(Object.values(sectionStatus).filter((s) => s.isValid).length / 4) * 100}%`,
+                }}
+              ></div>
+            </div>
+          </div>
         </div>
 
         {isSubmitted ? (
@@ -63,9 +102,26 @@ export default function HireDriverPage() {
             <FormNavigation
               activeSection={activeSection}
               setActiveSection={setActiveSection}
+              formData={formData}
             />
 
             <div className="p-8">
+              {/* Display validation errors for current section */}
+              <ValidationErrors errors={currentSectionValidation.errors} />
+
+              {/* Success message when section is completed */}
+              {currentSectionValidation.isValid &&
+                activeSection !== "address" && (
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4 mb-6">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-400" />
+                      <span className="text-green-400 font-medium">
+                        Section completed! Moving to next section...
+                      </span>
+                    </div>
+                  </div>
+                )}
+
               {activeSection === "personal" && (
                 <PersonalDetailsForm
                   data={formData.personalDetails}
@@ -128,15 +184,26 @@ export default function HireDriverPage() {
                         setActiveSection(formSections[currentIndex + 1]);
                       }
                     }}
-                    className="px-6 py-3 rounded-lg bg-yellow-600/80 text-white hover:bg-yellow-600 transition-all ml-auto"
+                    disabled={!currentSectionValidation.isValid}
+                    className={`px-6 py-3 rounded-lg transition-all ml-auto ${
+                      currentSectionValidation.isValid
+                        ? "bg-yellow-600/80 text-white hover:bg-yellow-600"
+                        : "bg-gray-600/50 text-gray-400 cursor-not-allowed"
+                    }`}
                   >
-                    Next Section
+                    {currentSectionValidation.isValid
+                      ? "Continue to Next Section"
+                      : "Complete This Section"}
                   </button>
                 ) : (
                   <button
                     type="submit"
-                    disabled={isLoading}
-                    className="px-8 py-3 rounded-lg bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold hover:from-yellow-600 hover:to-yellow-700 transition-all shadow-lg hover:shadow-yellow-500/30 disabled:opacity-70 flex items-center justify-center gap-2 ml-auto"
+                    disabled={isLoading || !currentSectionValidation.isValid}
+                    className={`px-8 py-3 rounded-lg text-black font-bold transition-all shadow-lg flex items-center justify-center gap-2 ml-auto ${
+                      currentSectionValidation.isValid && !isLoading
+                        ? "bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 hover:shadow-yellow-500/30"
+                        : "bg-gray-600/50 text-gray-400 cursor-not-allowed"
+                    }`}
                   >
                     {isLoading ? (
                       <>

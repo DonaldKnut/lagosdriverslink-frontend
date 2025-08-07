@@ -6,7 +6,6 @@ interface PersonalDetails {
   emailAddress: string;
   phoneNumber: string;
   maritalStatus: string;
-  preferredDriverLocation: string;
 }
 
 // Define the props interface for the component
@@ -31,7 +30,6 @@ export default function PersonalDetailsForm({
         <div className="space-y-2">
           <label className="block text-yellow-300 font-medium">Full Name</label>
           <input
-            required
             name="fullName"
             type="text"
             value={data.fullName}
@@ -46,7 +44,6 @@ export default function PersonalDetailsForm({
             Email Address
           </label>
           <input
-            required
             name="emailAddress"
             type="email"
             value={data.emailAddress}
@@ -61,7 +58,6 @@ export default function PersonalDetailsForm({
             Phone Number
           </label>
           <input
-            required
             name="phoneNumber"
             type="tel"
             value={data.phoneNumber}
@@ -83,19 +79,6 @@ export default function PersonalDetailsForm({
             <option value="no">Single</option>
             <option value="yes">Married</option>
           </select>
-        </div>
-        <div className="space-y-2">
-          <label className="block text-yellow-300 font-medium">
-            Preferred Driver Location
-          </label>
-          <input
-            name="preferredDriverLocation"
-            type="text"
-            value={data.preferredDriverLocation}
-            onChange={handleInputChange}
-            className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-yellow-600/30 text-white placeholder:text-yellow-200/50 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
-            placeholder="Preferred area for driver residence"
-          />
         </div>
       </div>
     </div>

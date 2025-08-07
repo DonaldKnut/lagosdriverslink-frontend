@@ -17,12 +17,26 @@ export const sendDriverRequestMail = async ({
     requestDetails: string;
   };
 }) => {
-  return resend.emails.send({
+  console.log("📧 Sending admin email to teams@lagosdriverslink.com");
+
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error("RESEND_API_KEY is not configured");
+  }
+
+  const result = await resend.emails.send({
     from: "LagosDriversLINK <noreply@lagosdriverslink.com>",
     to: "teams@lagosdriverslink.com",
     subject: "New Driver Request Submitted",
     html,
   });
+
+  if (result.error) {
+    console.error("❌ Admin email failed:", result.error);
+    throw new Error(`Admin email failed: ${result.error.message}`);
+  }
+
+  console.log("✅ Admin email sent successfully");
+  return result;
 };
 
 // Customer Confirmation Email
@@ -33,6 +47,15 @@ export const sendCustomerEmail = async ({
   fullName: string;
   to: string;
 }) => {
+  console.log("📧 Sending customer confirmation email to:", to);
+
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error("RESEND_API_KEY is not configured");
+  }
+
+  const displayName =
+    fullName && fullName.trim() ? fullName : "Valued Customer";
+
   const html = await render(
     <div
       style={{
@@ -43,7 +66,7 @@ export const sendCustomerEmail = async ({
         fontFamily: "sans-serif",
       }}
     >
-      <h2 style={{ color: "#fde047" }}>Hello {fullName},</h2>
+      <h2 style={{ color: "#fde047" }}>Hello {displayName},</h2>
       <p>
         Thank you for submitting your driver request on{" "}
         <strong>LagosDriversLINK</strong>.
@@ -57,10 +80,18 @@ export const sendCustomerEmail = async ({
     </div>
   );
 
-  return resend.emails.send({
+  const result = await resend.emails.send({
     from: "LagosDriversLINK <noreply@lagosdriverslink.com>",
     to,
     subject: "Your Driver Request Has Been Received",
     html,
   });
+
+  if (result.error) {
+    console.error("❌ Customer email failed:", result.error);
+    throw new Error(`Customer email failed: ${result.error.message}`);
+  }
+
+  console.log("✅ Customer confirmation email sent successfully");
+  return result;
 };

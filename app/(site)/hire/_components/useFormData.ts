@@ -6,7 +6,6 @@ interface PersonalDetails {
   emailAddress: string;
   phoneNumber: string;
   maritalStatus: string;
-  preferredDriverLocation: string;
 }
 
 interface ProjectDetails {
@@ -14,7 +13,6 @@ interface ProjectDetails {
   contractDuration: string;
   salaryPackage: string;
   workSchedule: string;
-  accommodationProvided: string;
   dutiesDescription: string;
   resumptionDate: string;
   resumptionTime: string;
@@ -34,7 +32,6 @@ interface VehicleDetails {
 interface AddressInformation {
   homeAddress: string;
   officeAddress: string;
-  regularPickupLocations: string;
 }
 
 // Rename to FormDataType to match the import, or keep as FormData
@@ -51,14 +48,12 @@ const initialFormData: FormDataType = {
     emailAddress: "",
     phoneNumber: "",
     maritalStatus: "no",
-    preferredDriverLocation: "",
   },
   projectDetails: {
     driverType: "personal",
     contractDuration: "6-months",
     salaryPackage: "155000",
     workSchedule: "weekdays",
-    accommodationProvided: "no",
     dutiesDescription: "",
     resumptionDate: "",
     resumptionTime: "",
@@ -76,7 +71,6 @@ const initialFormData: FormDataType = {
   addressInformation: {
     homeAddress: "",
     officeAddress: "",
-    regularPickupLocations: "",
   },
 };
 
