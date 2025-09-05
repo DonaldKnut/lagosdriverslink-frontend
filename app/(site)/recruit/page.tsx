@@ -1,28 +1,10 @@
 // app/recruit/page.tsx
 import React from "react";
-import Head from "next/head";
 import Image from "next/image";
 
 const RecruitPage = () => {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Head>
-        <title>Recruit Drivers with DrivePro | Partner With Us</title>
-        <meta
-          name="description"
-          content="Partner with DrivePro to recruit experienced, professional drivers across Nigeria. Join our network and find trusted drivers fast."
-        />
-        <meta
-          name="keywords"
-          content="driver recruitment, hire drivers, driver hiring Nigeria, chauffeur recruitment, driving jobs"
-        />
-        <meta
-          property="og:url"
-          content="https://lagosdriverslink.com/recruit"
-        />
-        <meta property="og:image" content="/og-image.jpg" />
-      </Head>
-
       {/* Hero Section */}
       <section className="py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-6xl mx-auto text-center">
@@ -165,7 +147,7 @@ const RecruitPage = () => {
                 <input
                   type="text"
                   className="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                  placeholder="Lagos, Abuja, Port Harcourt..."
+                  placeholder="Lagos..."
                   required
                 />
               </div>

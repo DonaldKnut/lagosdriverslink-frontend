@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import StructuredData from "./components/StructuredData";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,8 +11,82 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Lagos Drivers Link",
-  description: "Outsource professional Lagos drivers on-demand",
+  title: {
+    default: "Lagos Drivers Link - Professional Driver Services in Lagos",
+    template: "%s | Lagos Drivers Link",
+  },
+  description:
+    "Hire verified, professional drivers in Lagos for corporate, private, and logistics needs. Pre-vetted chauffeurs available 24/7. Book your driver today!",
+  keywords: [
+    "Lagos drivers",
+    "professional drivers Lagos",
+    "chauffeur services Lagos",
+    "driver hire Lagos",
+    "corporate drivers",
+    "private drivers",
+    "logistics drivers",
+    "verified drivers",
+    "driver services Nigeria",
+    "Lagos transportation",
+  ],
+  authors: [{ name: "Lagos Drivers Link" }],
+  creator: "Lagos Drivers Link",
+  publisher: "Lagos Drivers Link",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(
+    process.env.NEXTAUTH_URL || "https://lagosdriverslink.com"
+  ),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    url: "/",
+    title: "Lagos Drivers Link - Professional Driver Services in Lagos",
+    description:
+      "Hire verified, professional drivers in Lagos for corporate, private, and logistics needs. Pre-vetted chauffeurs available 24/7.",
+    siteName: "Lagos Drivers Link",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Lagos Drivers Link - Professional Driver Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lagos Drivers Link - Professional Driver Services in Lagos",
+    description:
+      "Hire verified, professional drivers in Lagos for corporate, private, and logistics needs. Pre-vetted chauffeurs available 24/7.",
+    images: ["/og-image.jpg"],
+    creator: "@lagosdriverslink",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({
@@ -19,6 +94,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={poppins.variable} suppressHydrationWarning>
+      <head>
+        <StructuredData type="Organization" data={{}} />
+        <StructuredData type="WebSite" data={{}} />
+        <StructuredData type="LocalBusiness" data={{}} />
+        <StructuredData type="Service" data={{}} />
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

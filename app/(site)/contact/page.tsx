@@ -42,7 +42,7 @@ const ContactPage = () => {
             {
               icon: <MapPin className="w-8 h-8 text-yellow-500" />,
               title: "Visit Us",
-              info: "Lagos, Abuja, Port Harcourt",
+              info: "Lagos",
               action: "Get directions",
               link: "#",
             },
@@ -203,46 +203,6 @@ const ContactPage = () => {
                 <p className="text-yellow-100 mb-4">
                   24a Bashorun R.I. Okusanya Ave, Lekki Phase 1, Lagos 105102,
                   Lagos
-                </p>
-                <a
-                  href="#"
-                  className="text-yellow-400 font-medium inline-flex items-center hover:text-yellow-300 transition-colors"
-                >
-                  Get Directions <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-gray-900 rounded-xl overflow-hidden border border-yellow-700 hover:border-yellow-500 transition-colors">
-              <div className="h-64 bg-gray-800 flex items-center justify-center">
-                <MapPin className="w-12 h-12 text-yellow-500" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-yellow-400">
-                  Abuja Office
-                </h3>
-                <p className="text-yellow-100 mb-4">
-                  456 Central Business District, Abuja, Nigeria
-                </p>
-                <a
-                  href="#"
-                  className="text-yellow-400 font-medium inline-flex items-center hover:text-yellow-300 transition-colors"
-                >
-                  Get Directions <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-gray-900 rounded-xl overflow-hidden border border-yellow-700 hover:border-yellow-500 transition-colors">
-              <div className="h-64 bg-gray-800 flex items-center justify-center">
-                <MapPin className="w-12 h-12 text-yellow-500" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-yellow-400">
-                  Port Harcourt Office
-                </h3>
-                <p className="text-yellow-100 mb-4">
-                  789 GRA Phase 2, Port Harcourt, Nigeria
                 </p>
                 <a
                   href="#"
