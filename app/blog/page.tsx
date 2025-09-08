@@ -104,12 +104,16 @@ export default function BlogPage() {
   const regularPosts = blogPosts.filter((post) => !post.featured);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white relative">
+      {/* Background with hero-style but lighter */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 to-yellow-600/5"></div>
+      
       {/* Header spacing */}
-      <div className="h-[88px]"></div>
+      <div className="h-[88px] relative z-10"></div>
 
       {/* Hero Section */}
-      <section className="py-20 px-6 sm:px-12 md:px-16 lg:px-24 bg-gradient-to-b from-black to-gray-900">
+      <section className="relative py-20 px-6 sm:px-12 md:px-16 lg:px-24 z-10">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
@@ -126,7 +130,7 @@ export default function BlogPage() {
 
       {/* Featured Post */}
       {featuredPost && (
-        <section className="py-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-gray-900">
+        <section className="relative py-16 px-6 sm:px-12 md:px-16 lg:px-24 z-10">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-yellow-100 mb-8 text-center">
               Featured Article
@@ -183,7 +187,7 @@ export default function BlogPage() {
       )}
 
       {/* Categories Filter */}
-      <section className="py-8 px-6 sm:px-12 md:px-16 lg:px-24 bg-black">
+      <section className="relative py-8 px-6 sm:px-12 md:px-16 lg:px-24 z-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
@@ -199,7 +203,7 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-black">
+      <section className="relative py-16 px-6 sm:px-12 md:px-16 lg:px-24 z-10">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-yellow-100 mb-12 text-center">
             Latest Articles
@@ -261,7 +265,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-gradient-to-r from-yellow-900/20 to-amber-900/20">
+      <section className="relative py-16 px-6 sm:px-12 md:px-16 lg:px-24 z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-yellow-100 mb-4">
             Stay Updated

@@ -5,7 +5,6 @@ import Testimonials from "../components/Testimonials";
 import { sanityClient } from "@/lib/sanity";
 import { HOMEPAGE_QUERY } from "@/lib/queries";
 import HirePlansSection from "../components/HirePlansSection";
-import WhatsAppFloatingButton from "../components/WhatsAppFloatingButton";
 import { HomepageData } from "@/types/homepage";
 import { DriverHeroPromo } from "../components/DriverHeroPromo";
 import FreerowSection from "../components/FreerowSection";
@@ -69,7 +68,6 @@ export default async function HomePage() {
       <HirePlansSection />
       <Testimonials />
       <FAQ />
-      <WhatsAppFloatingButton />
     </div>
   );
 }

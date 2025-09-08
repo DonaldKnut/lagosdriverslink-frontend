@@ -42,9 +42,12 @@ const HelpPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white relative">
+      {/* Background with hero-style but lighter */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 to-yellow-600/5"></div>
       {/* Hero Section */}
-      <section className="relative py-28 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
+      <section className="relative py-28 px-6 md:px-12 lg:px-24 overflow-hidden z-10">
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
             Help Center
@@ -58,7 +61,7 @@ const HelpPage = () => {
       </section>
 
       {/* Support Options */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-900">
+      <section className="relative py-20 px-6 md:px-12 lg:px-24 z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">
@@ -73,14 +76,14 @@ const HelpPage = () => {
                 icon: <Phone className="w-10 h-10 text-yellow-500" />,
                 title: "Phone Support",
                 description: "Available 24/7 for urgent matters",
-                contact: "+234 812 345 6789",
+                contact: "+234 903 270 2233",
                 action: "Call Now",
               },
               {
                 icon: <Mail className="w-10 h-10 text-yellow-500" />,
                 title: "Email Support",
                 description: "Typically responds within 2 hours",
-                contact: "support@drivepro.ng",
+                contact: "teams@lagosdriverslink.com",
                 action: "Send Email",
               },
               {
@@ -158,7 +161,7 @@ const HelpPage = () => {
       </section>
 
       {/* Emergency Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-900">
+      <section className="relative py-20 px-6 md:px-12 lg:px-24 z-10">
         <div className="max-w-4xl mx-auto bg-gradient-to-r from-yellow-600/20 to-yellow-800/20 rounded-xl p-8 md:p-12 border border-yellow-500/30">
           <div className="flex flex-col md:flex-row items-center">
             <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-8">
@@ -175,11 +178,11 @@ const HelpPage = () => {
                 24/7 emergency line.
               </p>
               <a
-                href="tel:+2348123456789"
+                href="tel:+2349032702233"
                 className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg inline-flex items-center transition-colors duration-300"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Call Emergency Line: +234 812 345 6789
+                Call Emergency Line: +234 903 270 2233
               </a>
             </div>
           </div>
