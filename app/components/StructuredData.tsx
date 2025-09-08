@@ -7,7 +7,7 @@ interface StructuredDataProps {
     | "LocalBusiness"
     | "WebSite"
     | "BreadcrumbList";
-  data: any;
+  data: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 export const StructuredData: React.FC<StructuredDataProps> = ({
@@ -153,7 +153,7 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
         return {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          itemListElement: data.map((item: any, index: number) => ({
+          itemListElement: (data as Array<Record<string, unknown>>).map((item: Record<string, unknown>, index: number) => ({
             "@type": "ListItem",
             position: index + 1,
             name: item.name,

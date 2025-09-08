@@ -1,0 +1,36 @@
+
+> lagosdrivers-frontend@0.1.0 build
+> next build
+
+   ▲ Next.js 15.4.5
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 2.0min
+   Linting and checking validity of types ...
+
+Failed to compile.
+
+./app/(site)/not-found.tsx
+29:29  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+29:56  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+122:77  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+136:61  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+151:15  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+152:50  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./app/blog/page.tsx
+3:45  Error: 'Tag' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./app/components/StructuredData.tsx
+10:9  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+156:44  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/not-found.tsx
+2:8  Error: 'Image' is defined but never used.  @typescript-eslint/no-unused-vars
+30:27  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+31:18  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+104:15  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+104:132  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
