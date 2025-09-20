@@ -49,7 +49,7 @@ async function runComprehensiveTests() {
   // Test 1: Email functionality
   results.testEmail = await testEndpoint(
     "/api/test-email",
-    { to: "support@lagosdriverslink.com" },
+    { to: "teams@lagosdriverslink.com" },
     "Email Service Test"
   );
 

@@ -80,10 +80,10 @@ export const DriverRequestConfirmationEmail: React.FC<
           Our team will review your request and contact you shortly with next
           steps. If you have any questions, feel free to reach out to us at{" "}
           <a
-            href="mailto:support@lagosdriverslink.com"
+            href="mailto:teams@lagosdriverslink.com"
             style={{ color: "#1a73e8", textDecoration: "none" }}
           >
-            support@lagosdriverslink.com
+            teams@lagosdriverslink.com
           </a>
           .
         </p>

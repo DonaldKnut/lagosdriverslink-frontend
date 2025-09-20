@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
     const result = await resend.emails.send({
       from: emailFrom,
-      to: to || "support@lagosdriverslink.com",
+      to: to || "teams@lagosdriverslink.com",
       subject: "Test Email - LagosDriversLink",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">

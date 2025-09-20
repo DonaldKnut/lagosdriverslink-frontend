@@ -148,7 +148,7 @@ export default function ThankYouPage() {
           <p className="text-gray-500 text-sm">
             Need immediate assistance?{" "}
             <a
-              href="mailto:support@lagosdriverslink.com"
+              href="mailto:teams@lagosdriverslink.com"
               className="text-yellow-400 hover:underline"
             >
               Contact our support team

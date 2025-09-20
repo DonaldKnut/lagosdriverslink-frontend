@@ -27,7 +27,7 @@ const testimonials = [
     photo: "/rose.jpeg",
   },
   {
-    name: "Chidinma Okoro",
+    name: "Chinedu Okoro",
     role: "Medical Doctor, Ikoyi",
     quote:
       "After night shifts at the hospital, I can't risk driving tired. My assigned driver knows all the quick routes home and even remembers my preferred AC temperature!",
@@ -46,10 +46,10 @@ const testimonials = [
     quote:
       "I've been using the corporate plan for 2 years now. The consistent quality means I never have to worry about transportation for important client meetings.",
     photo:
-      "/portrait-of-a-confident-young-black-man-for-lifestyle-or-fashion-marketing-free-photo",
+      "https://img.freepik.com/free-photo/african-american-woman-smiling-beige-background_53876-126965.jpg?semt=ais_incoming&w=740&q=80",
   },
   {
-    name: "Segun Olawale",
+    name: "Fatima Usman",
     role: "Tour Operator, Ikeja",
     quote:
       "My tourism business depends on reliable transportation. With LagosDriversLink, I can focus on my clients knowing the driving is in expert hands.",

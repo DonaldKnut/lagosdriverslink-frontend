@@ -185,7 +185,7 @@ export async function POST(request: Request) {
     try {
       teamEmailResult = await resend.emails.send({
         from: emailFrom,
-        to: "support@lagosdriverslink.com",
+        to: "teams@lagosdriverslink.com",
         subject: "New Driver Request Submitted",
         html: teamEmail.html,
       });
@@ -201,7 +201,7 @@ export async function POST(request: Request) {
       }
 
       console.log(
-        "✅ Team notification email sent successfully to: support@lagosdriverslink.com"
+        "✅ Team notification email sent successfully to: teams@lagosdriverslink.com"
       );
     } catch (teamEmailError) {
       console.error("❌ Team notification email error:", teamEmailError);

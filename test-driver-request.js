@@ -54,7 +54,7 @@ async function testEmail() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        to: "support@lagosdriverslink.com",
+        to: "teams@lagosdriverslink.com",
       }),
     });
 
