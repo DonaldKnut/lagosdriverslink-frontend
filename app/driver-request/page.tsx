@@ -183,9 +183,11 @@ export default function DriverRequestForm() {
           <Car className="h-10 w-10 text-yellow-500" aria-hidden="true" />
         </div>
         <h1 className="text-3xl font-extrabold text-yellow-100">
-          Request a Driver
+          Hire a Professional Driver - Get a Pro Driver in Lagos
         </h1>
         <p className="text-yellow-200 mt-1 text-sm">
+          Professional drivers, hire a professional driver, get a pro driver in
+          Lagos. Recruit professional drivers and hire a pro driver in Lagos.
           Fill out the details to request your {plan} driver service
         </p>
       </div>
@@ -284,7 +286,6 @@ export default function DriverRequestForm() {
           </label>
           <div className="relative mt-1">
             <MapPin
-              i
               className="absolute left-3 top-3 h-5 w-5 text-yellow-500"
               aria-hidden="true"
             />

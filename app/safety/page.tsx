@@ -2,12 +2,11 @@ import {
   Shield,
   AlertTriangle,
   Ambulance,
-  Car,
   Camera,
   Award,
   CheckCircle,
-  Star,
   Badge,
+  Car,
 } from "lucide-react";
 import Image from "next/image";
 

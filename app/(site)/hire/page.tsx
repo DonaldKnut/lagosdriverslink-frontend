@@ -55,12 +55,14 @@ export default function HireDriverPage() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
-            Professional Driver Request Form
+            Hire a Professional Driver - Get a Pro Driver in Lagos
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-yellow-600 to-yellow-400 mx-auto mb-6 rounded-full" />
           <p className="text-yellow-200 max-w-2xl mx-auto text-lg mb-8">
-            Complete this form to get matched with a vetted professional driver
-            within 24 hours
+            Professional drivers, hire a professional driver, get a pro driver
+            in Lagos. Recruit professional drivers and hire a pro driver in
+            Lagos. Complete this form to get matched with a vetted professional
+            driver within 24 hours
           </p>
 
           {/* Progress indicator */}

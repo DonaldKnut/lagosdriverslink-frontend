@@ -1,3 +1,5 @@
+"use client";
+
 // _components/useFormData.ts
 import { useState, ChangeEvent } from "react";
 

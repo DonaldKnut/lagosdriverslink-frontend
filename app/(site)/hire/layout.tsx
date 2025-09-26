@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hire Professional Drivers in Lagos",
+  title:
+    "Hire a Professional Driver in Lagos - Get a Pro Driver | Lagos Drivers Link",
   description:
-    "Book verified, professional drivers in Lagos for corporate, private, and logistics needs. Easy online booking with transparent pricing. Get your driver today!",
+    "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Easy online booking with transparent pricing. Get your professional driver today!",
   keywords: [
     "hire driver Lagos",
     "book driver Lagos",
@@ -13,11 +14,20 @@ export const metadata: Metadata = {
     "chauffeur booking",
     "driver services Lagos",
     "verified drivers Lagos",
+    "hire a professional driver",
+    "get a pro driver in lagos",
+    "recruit professional",
+    "hire a pro driver in lagos",
+    "professional driver services",
+    "pro driver hire",
+    "professional chauffeur Lagos",
+    "experienced drivers Lagos",
   ],
   openGraph: {
-    title: "Hire Professional Drivers in Lagos | Lagos Drivers Link",
+    title:
+      "Hire a Professional Driver in Lagos - Get a Pro Driver | Lagos Drivers Link",
     description:
-      "Book verified, professional drivers in Lagos for corporate, private, and logistics needs. Easy online booking with transparent pricing.",
+      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Easy online booking with transparent pricing.",
     url: "/hire",
     type: "website",
     images: [
@@ -30,9 +40,10 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "Hire Professional Drivers in Lagos | Lagos Drivers Link",
+    title:
+      "Hire a Professional Driver in Lagos - Get a Pro Driver | Lagos Drivers Link",
     description:
-      "Book verified, professional drivers in Lagos for corporate, private, and logistics needs. Easy online booking with transparent pricing.",
+      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Easy online booking with transparent pricing.",
     images: ["/og-hire.jpg"],
   },
   alternates: {

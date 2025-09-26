@@ -25,7 +25,7 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
           url: "https://lagosdriverslink.com",
           logo: "https://lagosdriverslink.com/ldl_logo.png",
           description:
-            "Professional driver services in Lagos, Nigeria. Hire verified, experienced drivers for corporate, private, and logistics needs.",
+            "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, experienced drivers for corporate, private, and logistics needs.",
           foundingDate: "2023",
           address: {
             "@type": "PostalAddress",
@@ -59,7 +59,7 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
           "@type": "Service",
           name: "Professional Driver Services",
           description:
-            "Verified, professional driver services in Lagos for corporate, private, and logistics transportation needs.",
+            "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, professional driver services for corporate, private, and logistics transportation needs.",
           provider: {
             "@type": "Organization",
             name: "Lagos Drivers Link",
@@ -90,7 +90,8 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
           "@id": "https://lagosdriverslink.com/#business",
           name: "Lagos Drivers Link",
           image: "https://lagosdriverslink.com/ldl_logo.png",
-          description: "Professional driver services in Lagos, Nigeria",
+          description:
+            "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Professional driver services in Lagos, Nigeria",
           url: "https://lagosdriverslink.com",
           telephone: "+234-706-620-8246",
           address: {
@@ -131,7 +132,8 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
           "@type": "WebSite",
           name: "Lagos Drivers Link",
           url: "https://lagosdriverslink.com",
-          description: "Professional driver services in Lagos, Nigeria",
+          description:
+            "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Professional driver services in Lagos, Nigeria",
           potentialAction: {
             "@type": "SearchAction",
             target: {

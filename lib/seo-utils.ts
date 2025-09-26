@@ -72,9 +72,10 @@ export function generateMetadata(config: SEOConfig): Metadata {
 // Common SEO configurations for different page types
 export const seoConfigs = {
   home: {
-    title: "Lagos Drivers Link - Professional Driver Services in Lagos",
+    title:
+      "Professional Drivers Lagos - Hire a Pro Driver in Lagos | Lagos Drivers Link",
     description:
-      "Hire verified, professional drivers in Lagos for corporate, private, and logistics needs. Pre-vetted chauffeurs available 24/7. Book your driver today!",
+      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, experienced chauffeurs for corporate, private, and logistics needs. Book your professional driver today!",
     keywords: [
       "Lagos drivers",
       "professional drivers Lagos",
@@ -86,14 +87,25 @@ export const seoConfigs = {
       "verified drivers",
       "driver services Nigeria",
       "Lagos transportation",
+      "professional drivers",
+      "hire a professional driver",
+      "get a pro driver in lagos",
+      "recruit professional",
+      "hire a pro driver in lagos",
+      "professional driver services",
+      "pro driver hire",
+      "professional chauffeur Lagos",
+      "experienced drivers Lagos",
+      "qualified drivers Nigeria",
     ],
     url: "/",
   },
 
   hire: {
-    title: "Hire Professional Drivers in Lagos",
+    title:
+      "Hire a Professional Driver in Lagos - Get a Pro Driver | Lagos Drivers Link",
     description:
-      "Book verified, professional drivers in Lagos for corporate, private, and logistics needs. Easy online booking with transparent pricing. Get your driver today!",
+      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Easy online booking with transparent pricing. Get your professional driver today!",
     keywords: [
       "hire driver Lagos",
       "book driver Lagos",
@@ -103,15 +115,24 @@ export const seoConfigs = {
       "chauffeur booking",
       "driver services Lagos",
       "verified drivers Lagos",
+      "hire a professional driver",
+      "get a pro driver in lagos",
+      "recruit professional",
+      "hire a pro driver in lagos",
+      "professional driver services",
+      "pro driver hire",
+      "professional chauffeur Lagos",
+      "experienced drivers Lagos",
     ],
     url: "/hire",
     image: "/og-hire.jpg",
   },
 
   recruit: {
-    title: "Recruit Professional Drivers | Partner with Lagos Drivers Link",
+    title:
+      "Recruit Professional Drivers - Hire a Pro Driver in Lagos | Lagos Drivers Link",
     description:
-      "Partner with Lagos Drivers Link to recruit experienced, professional drivers across Lagos. Join our network and find trusted drivers fast. Easy recruitment process.",
+      "Professional drivers, recruit professional drivers and hire a pro driver in Lagos. Partner with Lagos Drivers Link to recruit experienced, professional drivers across Lagos. Join our network and find trusted drivers fast.",
     keywords: [
       "driver recruitment Lagos",
       "hire drivers Lagos",
@@ -121,6 +142,13 @@ export const seoConfigs = {
       "professional driver recruitment",
       "driver agency partnership",
       "recruit drivers Nigeria",
+      "recruit professional",
+      "hire a professional driver",
+      "get a pro driver in lagos",
+      "hire a pro driver in lagos",
+      "professional driver services",
+      "pro driver hire",
+      "professional chauffeur Lagos",
     ],
     url: "/recruit",
     image: "/og-recruit.jpg",

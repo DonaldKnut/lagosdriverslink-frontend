@@ -1,14 +1,29 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle, Star, Shield, Clock, Users, Car } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Private Drivers Service | Lagos Drivers Link",
+  title:
+    "Private Professional Drivers - Hire a Pro Driver in Lagos | Lagos Drivers Link",
   description:
-    "Professional private drivers for personal transportation in Lagos. Reliable, safe, and experienced drivers for your daily commute and special occasions.",
-  keywords:
-    "private drivers, personal driver, Lagos transportation, chauffeur service, professional driver",
+    "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Professional private drivers for personal transportation in Lagos. Reliable, safe, and experienced drivers for your daily commute and special occasions.",
+  keywords: [
+    "private drivers",
+    "personal driver",
+    "Lagos transportation",
+    "chauffeur service",
+    "professional driver",
+    "hire a professional driver",
+    "get a pro driver in lagos",
+    "recruit professional",
+    "hire a pro driver in lagos",
+    "professional driver services",
+    "pro driver hire",
+    "professional chauffeur Lagos",
+    "experienced drivers Lagos",
+  ],
 };
 
 export default function PrivateDriversPage() {

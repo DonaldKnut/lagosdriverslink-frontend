@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Metadata } from "next";
 import { Shield, Eye, Lock, Database, UserCheck, Globe } from "lucide-react";
 
@@ -232,7 +233,10 @@ export default function PrivacyPolicyPage() {
                 <p className="font-semibold mb-2">Lagos Drivers Link</p>
                 <p>Email: privacy@lagosdriverslink.com</p>
                 <p>Phone: +234 706 620 8246</p>
-                <p>Address: 24a Bashorun Okunsanya Street, Off Admiralty Way, Lekki Phase 1, Lagos</p>
+                <p>
+                  Address: 24a Bashorun Okunsanya Street, Off Admiralty Way,
+                  Lekki Phase 1, Lagos
+                </p>
                 <p>Alt Address: 94 Badore Road, Ajah</p>
               </div>
             </div>

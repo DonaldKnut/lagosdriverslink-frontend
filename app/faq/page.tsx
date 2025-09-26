@@ -1,14 +1,8 @@
-import { Metadata } from "next";
+/* eslint-disable react/no-unescaped-entities */
+"use client";
+
 import { HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Lagos Drivers Link",
-  description:
-    "Find answers to common questions about Lagos Drivers Link services, booking, payments, safety, and more. Get help with your transportation needs.",
-  keywords:
-    "FAQ, frequently asked questions, help, support, Lagos Drivers Link, transportation questions",
-};
 
 // Client component for FAQ accordion
 function FAQAccordion() {

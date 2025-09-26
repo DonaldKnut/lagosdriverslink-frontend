@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Heart,
-  Gift,
   Users,
   Globe,
   CheckCircle,
@@ -19,6 +18,8 @@ export const metadata: Metadata = {
   keywords:
     "donate, support, charity, transportation, Lagos, driver support, community development",
 };
+
+/* eslint-disable react/no-unescaped-entities */
 
 export default function DonatePage() {
   const donationCauses = [

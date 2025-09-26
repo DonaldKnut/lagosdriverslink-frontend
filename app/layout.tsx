@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Lagos Drivers Link",
   },
   description:
-    "Hire verified, professional drivers in Lagos for corporate, private, and logistics needs. Pre-vetted chauffeurs available 24/7. Book your driver today!",
+    "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, experienced chauffeurs for corporate, private, and logistics needs. Book your professional driver today!",
   keywords: [
     "Lagos drivers",
     "professional drivers Lagos",
@@ -28,6 +28,16 @@ export const metadata: Metadata = {
     "verified drivers",
     "driver services Nigeria",
     "Lagos transportation",
+    "professional drivers",
+    "hire a professional driver",
+    "get a pro driver in lagos",
+    "recruit professional",
+    "hire a pro driver in lagos",
+    "professional driver services",
+    "pro driver hire",
+    "professional chauffeur Lagos",
+    "experienced drivers Lagos",
+    "qualified drivers Nigeria",
   ],
   authors: [{ name: "Lagos Drivers Link" }],
   creator: "Lagos Drivers Link",
@@ -47,9 +57,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_NG",
     url: "/",
-    title: "Lagos Drivers Link - Professional Driver Services in Lagos",
+    title:
+      "Professional Drivers Lagos - Hire a Pro Driver in Lagos | Lagos Drivers Link",
     description:
-      "Hire verified, professional drivers in Lagos for corporate, private, and logistics needs. Pre-vetted chauffeurs available 24/7.",
+      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, experienced chauffeurs available 24/7.",
     siteName: "Lagos Drivers Link",
     images: [
       {
@@ -62,9 +73,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lagos Drivers Link - Professional Driver Services in Lagos",
+    title:
+      "Professional Drivers Lagos - Hire a Pro Driver in Lagos | Lagos Drivers Link",
     description:
-      "Hire verified, professional drivers in Lagos for corporate, private, and logistics needs. Pre-vetted chauffeurs available 24/7.",
+      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, experienced chauffeurs available 24/7.",
     images: ["/og-image.jpg"],
     creator: "@lagosdriverslink",
   },

@@ -1,16 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  CheckCircle,
-  Star,
-  Calendar,
-  Clock,
-  Users,
-  Car,
-  MapPin,
-  Gift,
-} from "lucide-react";
+import { CheckCircle, Star, Calendar, Users, MapPin, Gift } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Event Drivers Service | Lagos Drivers Link",
