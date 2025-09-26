@@ -29,18 +29,19 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
           foundingDate: "2023",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "24a Bashorun R.I. Okusanya Ave, Lekki Phase 1",
+            streetAddress:
+              "24a Bashorun Okunsanya Street, Off Admiralty Way, Lekki Phase 1, Lagos",
             addressLocality: "Lagos",
             postalCode: "105102",
             addressCountry: "NG",
           },
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+234-903-270-2233",
+            telephone: "+234-706-620-8246",
             contactType: "customer service",
             availableLanguage: ["English"],
           },
-          sameAs: ["https://wa.me/2349032702233"],
+          sameAs: ["https://wa.me/2347066208246"],
           serviceArea: {
             "@type": "GeoCircle",
             geoMidpoint: {
@@ -91,10 +92,11 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
           image: "https://lagosdriverslink.com/ldl_logo.png",
           description: "Professional driver services in Lagos, Nigeria",
           url: "https://lagosdriverslink.com",
-          telephone: "+234-903-270-2233",
+          telephone: "+234-706-620-8246",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "24a Bashorun R.I. Okusanya Ave, Lekki Phase 1",
+            streetAddress:
+              "24a Bashorun Okunsanya Street, Off Admiralty Way, Lekki Phase 1, Lagos",
             addressLocality: "Lagos",
             postalCode: "105102",
             addressCountry: "NG",

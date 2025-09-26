@@ -23,7 +23,7 @@ const packages = [
   },
   {
     title: "Weekday Driver (Mon-Fri)",
-    price: "₦155,000",
+    price: "₦175,000",
     description:
       "Professional driver for your weekday needs. Perfect for work commutes and business meetings.",
     features: [
@@ -39,7 +39,7 @@ const packages = [
   },
   {
     title: "Weekday+ Driver (Mon-Sat)",
-    price: "₦180,000",
+    price: "₦195,000",
     description:
       "Extended coverage including Saturdays. Ideal for professionals with weekend commitments.",
     features: [
@@ -55,7 +55,7 @@ const packages = [
   },
   {
     title: "Full Week Driver (Mon-Sun)",
-    price: "₦200,000",
+    price: "₦220,000",
     description:
       "Complete 7-day coverage for those needing full-time personal driver services.",
     features: [
@@ -145,6 +145,11 @@ export default function HirePlansSection() {
             Choose from our exclusive driver packages featuring the highest
             quality professionals. All drivers are thoroughly vetted and trained
             to Nigerian elite standards.
+          </p>
+          <p className="mt-4 text-yellow-300/90 text-sm">
+            Note: Package amounts shown elsewhere as salaries are monthly driver
+            pay. The Processing Fees displayed above are one-time setup fees and
+            not salaries.
           </p>
         </motion.div>
 

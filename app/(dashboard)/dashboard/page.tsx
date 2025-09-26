@@ -1,70 +1,141 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Users, Clock, Car, CheckCircle } from "lucide-react";
+import { useToast } from "@/app/components/Toast";
+
+interface DashboardStats {
+  totalDrivers: number;
+  pendingApprovals: number;
+  activeTrips: number;
+  completedTrips: number;
+  driversChange: number;
+  approvalsChange: number;
+  tripsChange: number;
+  completedChange: number;
+}
+
+interface Activity {
+  id: string;
+  driver: string;
+  action: string;
+  time: string;
+  status: string;
+  timestamp: string;
+}
 
 export default function DashboardPage() {
-  const [stats] = useState([
+  const [stats, setStats] = useState<DashboardStats | null>(null);
+  const [recentActivity, setRecentActivity] = useState<Activity[]>([]);
+  const [loading, setLoading] = useState(true);
+  const { trigger } = useToast();
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        setLoading(true);
+
+        // Fetch stats and activity in parallel
+        const [statsResponse, activityResponse] = await Promise.all([
+          fetch("/api/dashboard/stats"),
+          fetch("/api/dashboard/activity"),
+        ]);
+
+        if (!statsResponse.ok || !activityResponse.ok) {
+          throw new Error("Failed to fetch dashboard data");
+        }
+
+        const [statsData, activityData] = await Promise.all([
+          statsResponse.json(),
+          activityResponse.json(),
+        ]);
+
+        setStats(statsData);
+        setRecentActivity(activityData);
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+        trigger("error", "Failed to load dashboard data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+  }, [trigger]);
+
+  const formatStats = (stats: DashboardStats) => [
     {
       title: "Total Drivers",
-      value: "1,234",
+      value: stats.totalDrivers.toLocaleString(),
       icon: <Users className="w-8 h-8 text-amber-500" />,
-      change: "+5.2%",
-      positive: true,
+      change: `${stats.driversChange > 0 ? "+" : ""}${stats.driversChange}%`,
+      positive: stats.driversChange > 0,
     },
     {
       title: "Pending Approvals",
-      value: "28",
+      value: stats.pendingApprovals.toString(),
       icon: <Clock className="w-8 h-8 text-amber-500" />,
-      change: "-2",
-      positive: false,
+      change:
+        stats.approvalsChange > 0
+          ? `+${stats.approvalsChange}`
+          : stats.approvalsChange.toString(),
+      positive: stats.approvalsChange > 0,
     },
     {
       title: "Active Trips",
-      value: "156",
+      value: stats.activeTrips.toString(),
       icon: <Car className="w-8 h-8 text-amber-500" />,
-      change: "+12%",
-      positive: true,
+      change: `+${stats.tripsChange}%`,
+      positive: stats.tripsChange > 0,
     },
     {
       title: "Completed Trips",
-      value: "4,567",
+      value: stats.completedTrips.toLocaleString(),
       icon: <CheckCircle className="w-8 h-8 text-amber-500" />,
-      change: "+8.1%",
-      positive: true,
+      change: `+${stats.completedChange}%`,
+      positive: stats.completedChange > 0,
     },
-  ]);
+  ];
 
-  const [recentActivity] = useState([
-    {
-      id: "1",
-      driver: "John Adebayo",
-      action: "Completed Trip",
-      time: "2 hours ago",
-      status: "Success",
-    },
-    {
-      id: "2",
-      driver: "Aisha Okonkwo",
-      action: "Requested Approval",
-      time: "4 hours ago",
-      status: "Pending",
-    },
-    {
-      id: "3",
-      driver: "Chinedu Obi",
-      action: "Started Trip",
-      time: "6 hours ago",
-      status: "In Progress",
-    },
-    {
-      id: "4",
-      driver: "Funmi Ade",
-      action: "Profile Updated",
-      time: "1 day ago",
-      status: "Success",
-    },
-  ]);
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 animate-pulse">
+          <div className="h-6 bg-gray-700 rounded w-1/3 mb-2"></div>
+          <div className="h-4 bg-gray-700 rounded w-2/3"></div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[...Array(4)].map((_, i) => (
+            <div
+              key={i}
+              className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 animate-pulse"
+            >
+              <div className="h-4 bg-gray-700 rounded w-1/2 mb-2"></div>
+              <div className="h-8 bg-gray-700 rounded w-1/3 mb-2"></div>
+              <div className="h-3 bg-gray-700 rounded w-1/4"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (!stats) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700">
+          <h2 className="text-2xl font-bold text-amber-100">
+            Error Loading Dashboard
+          </h2>
+          <p className="text-gray-300 mt-2">
+            Unable to load dashboard data. Please try refreshing the page.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const formattedStats = formatStats(stats);
 
   return (
     <div className="space-y-6">
@@ -82,7 +153,7 @@ export default function DashboardPage() {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat) => (
+        {formattedStats.map((stat) => (
           <div
             key={stat.title}
             className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
@@ -106,7 +177,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Recent Activity Table */}
-      <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 overflow-hidden">
+      <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 overflow-hidden relative z-10">
         <div className="p-6">
           <h3 className="text-lg font-semibold text-amber-100">
             Recent Activity
@@ -135,8 +206,8 @@ export default function DashboardPage() {
                         activity.status === "Success"
                           ? "bg-green-500/20 text-green-500"
                           : activity.status === "Pending"
-                          ? "bg-amber-500/20 text-amber-500"
-                          : "bg-blue-500/20 text-blue-500"
+                            ? "bg-amber-500/20 text-amber-500"
+                            : "bg-blue-500/20 text-blue-500"
                       }`}
                     >
                       {activity.status}

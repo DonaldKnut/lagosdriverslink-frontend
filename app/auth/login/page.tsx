@@ -40,7 +40,7 @@ export default function LoginPage() {
       <div className="mb-6">
         <Link
           href="/"
-          className="inline-flex items-center text-sm text-gray-400 hover:text-amber-500 transition-colors"
+          className="inline-flex items-center text-sm text-yellow-500 hover:text-yellow-400 transition-colors"
         >
           <ArrowLeft className="h-4 w-4 mr-2" /> Back to home
         </Link>
@@ -48,22 +48,24 @@ export default function LoginPage() {
 
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
-          <LockKeyhole className="h-10 w-10 text-amber-500" />
+          <LockKeyhole className="h-10 w-10 text-yellow-400" />
         </div>
-        <h2 className="text-3xl font-extrabold text-amber-100">Welcome Back</h2>
-        <p className="text-amber-200 mt-1 text-sm">Sign in to your account</p>
+        <h2 className="text-3xl font-extrabold text-yellow-200">
+          Welcome Back
+        </h2>
+        <p className="text-yellow-300 mt-1 text-sm">Sign in to your account</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
           <label className="block">
-            <span className="text-sm text-gray-300">Email</span>
+            <span className="text-sm text-yellow-300">Email</span>
             <div className="relative mt-1">
-              <Mail className="absolute left-3 top-3 h-5 w-5 text-amber-500" />
+              <Mail className="absolute left-3 top-3 h-5 w-5 text-yellow-500" />
               <input
                 type="email"
                 placeholder="you@example.com"
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full bg-black border border-yellow-700 rounded-lg py-3 pl-10 pr-4 text-yellow-100 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -72,13 +74,13 @@ export default function LoginPage() {
           </label>
 
           <label className="block">
-            <span className="text-sm text-gray-300">Password</span>
+            <span className="text-sm text-yellow-300">Password</span>
             <div className="relative mt-1">
-              <LockKeyhole className="absolute left-3 top-3 h-5 w-5 text-amber-500" />
+              <LockKeyhole className="absolute left-3 top-3 h-5 w-5 text-yellow-500" />
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="********"
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-12 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full bg-black border border-yellow-700 rounded-lg py-3 pl-10 pr-12 text-yellow-100 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -89,26 +91,26 @@ export default function LoginPage() {
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
-                  <EyeOff className="h-5 w-5 text-amber-500" />
+                  <EyeOff className="h-5 w-5 text-yellow-500" />
                 ) : (
-                  <Eye className="h-5 w-5 text-amber-500" />
+                  <Eye className="h-5 w-5 text-yellow-500" />
                 )}
               </button>
             </div>
           </label>
         </div>
 
-        <div className="flex items-center justify-between text-sm text-gray-300">
+        <div className="flex items-center justify-between text-sm text-yellow-300">
           <label className="flex items-center">
             <input
               type="checkbox"
-              className="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-600 rounded bg-gray-700"
+              className="h-4 w-4 text-yellow-500 focus:ring-yellow-500 border-yellow-600 rounded bg-black"
             />
             <span className="ml-2">Remember me</span>
           </label>
           <Link
             href="/auth/forgot-password"
-            className="text-amber-500 hover:text-amber-400"
+            className="text-yellow-300 hover:text-yellow-200"
           >
             Forgot password?
           </Link>
@@ -117,14 +119,14 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className={`w-full py-3 px-4 rounded-lg font-semibold text-black bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 focus:ring-offset-gray-900 transition-all duration-200 ${
+          className={`w-full py-3 px-4 rounded-lg font-semibold text-black bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200 ${
             isLoading ? "opacity-70 cursor-not-allowed" : ""
           }`}
         >
           {isLoading ? (
             <span className="flex items-center justify-center">
               <svg
-                className="animate-spin -ml-1 mr-3 h-5 w-5 text-amber-900"
+                className="animate-spin -ml-1 mr-3 h-5 w-5 text-black"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -150,11 +152,11 @@ export default function LoginPage() {
           )}
         </button>
 
-        <p className="text-sm text-center text-gray-400 mt-4">
+        <p className="text-sm text-center text-yellow-400 mt-4">
           Don’t have an account?{" "}
           <Link
             href="/auth/register"
-            className="font-medium text-amber-500 hover:text-amber-400 underline"
+            className="font-medium text-yellow-300 hover:text-yellow-200 underline"
           >
             Sign up
           </Link>

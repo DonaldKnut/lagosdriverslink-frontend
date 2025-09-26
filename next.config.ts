@@ -9,6 +9,18 @@ const nextConfig = {
         port: "",
         pathname: "/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "img.freepik.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lagosdriverslink.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
     // domains: ['cdn.sanity.io'], // Older method (still works but remotePatterns is preferred)
   },

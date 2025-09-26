@@ -171,7 +171,7 @@ export default function DriverRequestForm() {
       <div className="mb-6">
         <Link
           href="/"
-          className="inline-flex items-center text-sm text-gray-400 hover:text-amber-500 transition-colors"
+          className="inline-flex items-center text-sm text-gray-400 hover:text-yellow-500 transition-colors"
           aria-label="Return to home page"
         >
           <ArrowLeft className="h-4 w-4 mr-2" /> Back to home
@@ -180,24 +180,24 @@ export default function DriverRequestForm() {
 
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
-          <Car className="h-10 w-10 text-amber-500" aria-hidden="true" />
+          <Car className="h-10 w-10 text-yellow-500" aria-hidden="true" />
         </div>
-        <h1 className="text-3xl font-extrabold text-amber-100">
+        <h1 className="text-3xl font-extrabold text-yellow-100">
           Request a Driver
         </h1>
-        <p className="text-amber-200 mt-1 text-sm">
+        <p className="text-yellow-200 mt-1 text-sm">
           Fill out the details to request your {plan} driver service
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="fullName" className="block text-sm text-gray-300">
+          <label htmlFor="fullName" className="block text-sm text-yellow-300">
             Full Name
           </label>
           <div className="relative mt-1">
             <User
-              className="absolute left-3 top-3 h-5 w-5 text-amber-500"
+              className="absolute left-3 top-3 h-5 w-5 text-yellow-500"
               aria-hidden="true"
             />
             <input
@@ -207,7 +207,7 @@ export default function DriverRequestForm() {
               value={formData.fullName}
               onChange={handleChange}
               placeholder="John Doe"
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full bg-black border border-yellow-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               required
               aria-invalid={!!errors.fullName}
               aria-describedby={errors.fullName ? "fullName-error" : undefined}
@@ -221,12 +221,12 @@ export default function DriverRequestForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm text-gray-300">
+          <label htmlFor="email" className="block text-sm text-yellow-300">
             Email Address
           </label>
           <div className="relative mt-1">
             <Mail
-              className="absolute left-3 top-3 h-5 w-5 text-amber-500"
+              className="absolute left-3 top-3 h-5 w-5 text-yellow-500"
               aria-hidden="true"
             />
             <input
@@ -236,7 +236,7 @@ export default function DriverRequestForm() {
               value={formData.email}
               onChange={handleChange}
               placeholder="you@example.com"
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full bg-black border border-yellow-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               required
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? "email-error" : undefined}
@@ -250,12 +250,12 @@ export default function DriverRequestForm() {
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm text-gray-300">
+          <label htmlFor="phone" className="block text-sm text-yellow-300">
             Phone Number
           </label>
           <div className="relative mt-1">
             <Phone
-              className="absolute left-3 top-3 h-5 w-5 text-amber-500"
+              className="absolute left-3 top-3 h-5 w-5 text-yellow-500"
               aria-hidden="true"
             />
             <input
@@ -265,7 +265,7 @@ export default function DriverRequestForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+234 123 456 7890"
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full bg-black border border-yellow-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               required
               aria-invalid={!!errors.phone}
               aria-describedby={errors.phone ? "phone-error" : undefined}
@@ -279,12 +279,13 @@ export default function DriverRequestForm() {
         </div>
 
         <div>
-          <label htmlFor="location" className="block text-sm text-gray-300">
+          <label htmlFor="location" className="block text-sm text-yellow-300">
             Location
           </label>
           <div className="relative mt-1">
             <MapPin
-              className="absolute left-3 top-3 h-5 w-5 text-amber-500"
+              i
+              className="absolute left-3 top-3 h-5 w-5 text-yellow-500"
               aria-hidden="true"
             />
             <input
@@ -294,7 +295,7 @@ export default function DriverRequestForm() {
               value={formData.location}
               onChange={handleChange}
               placeholder="Lagos, Nigeria"
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full bg-black border border-yellow-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               required
               aria-invalid={!!errors.location}
               aria-describedby={errors.location ? "location-error" : undefined}
@@ -308,12 +309,12 @@ export default function DriverRequestForm() {
         </div>
 
         <div>
-          <label htmlFor="plan" className="block text-sm text-gray-300">
+          <label htmlFor="plan" className="block text-sm text-yellow-300">
             Selected Plan
           </label>
           <div className="relative mt-1">
             <List
-              className="absolute left-3 top-3 h-5 w-5 text-amber-500"
+              className="absolute left-3 top-3 h-5 w-5 text-yellow-500"
               aria-hidden="true"
             />
             <select
@@ -321,7 +322,7 @@ export default function DriverRequestForm() {
               name="plan"
               value={formData.plan}
               onChange={handleChange}
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 appearance-none"
+              className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none"
               disabled
               aria-label="Selected driver plan"
             >
@@ -337,13 +338,13 @@ export default function DriverRequestForm() {
         <div>
           <label
             htmlFor="additionalNotes"
-            className="block text-sm text-gray-300"
+            className="block text-sm text-yellow-300"
           >
             Additional Notes
           </label>
           <div className="relative mt-1">
             <Pen
-              className="absolute left-3 top-3 h-5 w-5 text-amber-500"
+              className="absolute left-3 top-3 h-5 w-5 text-yellow-500"
               aria-hidden="true"
             />
             <textarea
@@ -352,7 +353,7 @@ export default function DriverRequestForm() {
               value={formData.additionalNotes}
               onChange={handleChange}
               placeholder="Any specific requirements..."
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full bg-black border border-yellow-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               rows={4}
               aria-label="Additional notes about your driver request"
             />
@@ -374,7 +375,7 @@ export default function DriverRequestForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full py-3 px-4 rounded-lg font-semibold text-black bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 focus:ring-offset-gray-900 transition-all duration-200 ${
+          className={`w-full py-3 px-4 rounded-lg font-semibold text-black bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 focus:ring-offset-gray-900 transition-all duration-200 ${
             isSubmitting ? "opacity-70 cursor-not-allowed" : ""
           }`}
           aria-busy={isSubmitting}
@@ -382,7 +383,7 @@ export default function DriverRequestForm() {
           {isSubmitting ? (
             <span className="flex items-center justify-center">
               <svg
-                className="animate-spin -ml-1 mr-3 h-5 w-5 text-amber-900"
+                className="animate-spin -ml-1 mr-3 h-5 w-5 text-yellow-900"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"

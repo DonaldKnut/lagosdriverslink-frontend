@@ -113,7 +113,9 @@ export default function RegisterPage() {
         <div className="flex justify-center mb-4">
           <User className="h-10 w-10 text-yellow-400" />
         </div>
-        <h2 className="text-2xl font-bold text-yellow-200">Create Account</h2>
+        <h2 className="text-3xl font-extrabold text-yellow-200">
+          Create Account
+        </h2>
         <p className="text-yellow-300 mt-1">
           Join our network of trusted clients
         </p>
@@ -273,7 +275,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className={`w-full py-3 px-4 rounded-lg font-medium text-black bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200 ${
+          className={`w-full py-3 px-4 rounded-lg font-semibold text-black bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200 ${
             isLoading ? "opacity-70 cursor-not-allowed" : ""
           }`}
         >

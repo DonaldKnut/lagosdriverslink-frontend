@@ -1,11 +1,4 @@
-import {
-  HelpCircle,
-  Phone,
-  Mail,
-  MessageSquare,
-  AlertCircle,
-  ArrowRight,
-} from "lucide-react";
+import { HelpCircle, Phone, Mail, MessageSquare, AlertCircle, ArrowRight, Shield, Clock } from "lucide-react";
 
 const HelpPage = () => {
   const faqs = [
@@ -70,21 +63,15 @@ const HelpPage = () => {
             <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
-              {
-                icon: <Phone className="w-10 h-10 text-yellow-500" />,
-                title: "Phone Support",
-                description: "Available 24/7 for urgent matters",
-                contact: "+234 903 270 2233",
-                action: "Call Now",
-              },
               {
                 icon: <Mail className="w-10 h-10 text-yellow-500" />,
                 title: "Email Support",
                 description: "Typically responds within 2 hours",
                 contact: "teams@lagosdriverslink.com",
                 action: "Send Email",
+                href: "mailto:teams@lagosdriverslink.com",
               },
               {
                 icon: <MessageSquare className="w-10 h-10 text-yellow-500" />,
@@ -92,6 +79,7 @@ const HelpPage = () => {
                 description: "Available Mon-Fri, 8am-6pm WAT",
                 contact: "Start chat from any page",
                 action: "Chat Now",
+                href: "https://wa.me/2347066208246",
               },
             ].map((option, index) => (
               <div
@@ -114,17 +102,13 @@ const HelpPage = () => {
                 </p>
                 <div className="flex justify-center">
                   <a
-                    href={
-                      index === 0
-                        ? "tel:+2348123456789"
-                        : index === 1
-                          ? "mailto:support@drivepro.ng"
-                          : "#"
-                    }
+                    href={option.href}
+                    target={index === 1 ? "_blank" : undefined}
+                    rel={index === 1 ? "noopener noreferrer" : undefined}
                     className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-lg transition-colors duration-300 inline-flex items-center"
                   >
                     {option.action}
-                    {index !== 2 && <ArrowRight className="ml-2 w-4 h-4" />}
+                    <ArrowRight className="ml-2 w-4 h-4" />
                   </a>
                 </div>
               </div>
@@ -162,28 +146,70 @@ const HelpPage = () => {
 
       {/* Emergency Section */}
       <section className="relative py-20 px-6 md:px-12 lg:px-24 z-10">
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-yellow-600/20 to-yellow-800/20 rounded-xl p-8 md:p-12 border border-yellow-500/30">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-8">
-              <div className="bg-yellow-500/20 p-4 rounded-full">
-                <AlertCircle className="w-12 h-12 text-yellow-500" />
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-gradient-to-r from-yellow-600/20 to-yellow-800/20 rounded-2xl p-8 md:p-12 border border-yellow-500/30">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-yellow-500/20 p-3 rounded-full">
+                    <AlertCircle className="w-8 h-8 text-yellow-400" />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-yellow-400">
+                    Emergency Assistance
+                  </h2>
+                </div>
+                <p className="text-gray-300 mb-6 text-lg">
+                  For immediate assistance with an active booking or urgent matters, 
+                  our emergency line is available 24/7.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Shield className="w-5 h-5 text-yellow-400" />
+                    <span className="text-yellow-100">24/7 Emergency Support</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Clock className="w-5 h-5 text-yellow-400" />
+                    <span className="text-yellow-100">Immediate Response</span>
+                  </div>
+                </div>
+                <a
+                  href="tel:+2349032702233"
+                  className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg inline-flex items-center transition-colors duration-300"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Call Emergency Line: +234 903 270 2233
+                </a>
               </div>
-            </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-yellow-400">
-                Emergency Assistance
-              </h2>
-              <p className="text-gray-300 mb-6">
-                For immediate assistance with an active booking, please call our
-                24/7 emergency line.
-              </p>
-              <a
-                href="tel:+2349032702233"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg inline-flex items-center transition-colors duration-300"
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Call Emergency Line: +234 903 270 2233
-              </a>
+              
+              {/* Illustrations */}
+              <div className="relative">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-center">
+                    <div className="bg-yellow-500/20 p-3 rounded-full w-fit mx-auto mb-3">
+                      <Phone className="w-6 h-6 text-yellow-400" />
+                    </div>
+                    <div className="text-yellow-200 text-sm font-semibold">Emergency Call</div>
+                  </div>
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-center">
+                    <div className="bg-yellow-500/20 p-3 rounded-full w-fit mx-auto mb-3">
+                      <Shield className="w-6 h-6 text-yellow-400" />
+                    </div>
+                    <div className="text-yellow-200 text-sm font-semibold">24/7 Support</div>
+                  </div>
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-center">
+                    <div className="bg-yellow-500/20 p-3 rounded-full w-fit mx-auto mb-3">
+                      <Clock className="w-6 h-6 text-yellow-400" />
+                    </div>
+                    <div className="text-yellow-200 text-sm font-semibold">Quick Response</div>
+                  </div>
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-center">
+                    <div className="bg-yellow-500/20 p-3 rounded-full w-fit mx-auto mb-3">
+                      <AlertCircle className="w-6 h-6 text-yellow-400" />
+                    </div>
+                    <div className="text-yellow-200 text-sm font-semibold">Urgent Help</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

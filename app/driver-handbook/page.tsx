@@ -120,7 +120,7 @@ const quickTips = [
 const emergencyContacts = [
   {
     name: "Lagos Drivers Link Support",
-    number: "+234-903-270-2233",
+    number: "+234-706-620-8246",
     description: "24/7 driver support hotline",
   },
   {
@@ -322,6 +322,7 @@ export default function DriverHandbookPage() {
     </div>
   );
 }
+
 
 
 

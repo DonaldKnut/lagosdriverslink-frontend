@@ -1,4 +1,14 @@
-import { Shield, AlertTriangle, Ambulance, Car, Camera } from "lucide-react";
+import {
+  Shield,
+  AlertTriangle,
+  Ambulance,
+  Car,
+  Camera,
+  Award,
+  CheckCircle,
+  Star,
+  Badge,
+} from "lucide-react";
 import Image from "next/image";
 
 const SafetyPage = () => {
@@ -20,16 +30,16 @@ const SafetyPage = () => {
       </section>
 
       {/* Safety Commitment */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-900">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">
               Our Safety Commitment
             </h2>
             <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              At DrivePro, safety isn&apos;t just a priority—it&apos;s the
-              foundation of everything we do.
+            <p className="text-yellow-100 max-w-2xl mx-auto">
+              At Lagos Drivers Link, safety isn&apos;t just a priority—it&apos;s
+              the foundation of everything we do.
             </p>
           </div>
 
@@ -55,17 +65,19 @@ const SafetyPage = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-colors"
+                className="bg-black p-6 rounded-xl border border-yellow-500/30 hover:border-yellow-500/50 transition-colors"
               >
                 <div className="flex justify-center mb-4">
-                  <div className="p-4 rounded-full bg-gray-700">
+                  <div className="p-4 rounded-full bg-yellow-500/10 border border-yellow-500/30">
                     {item.icon}
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-center mb-3">
                   {item.title}
                 </h3>
-                <p className="text-gray-300 text-center">{item.description}</p>
+                <p className="text-yellow-100 text-center">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -80,7 +92,7 @@ const SafetyPage = () => {
               <h2 className="text-3xl font-bold mb-6 text-yellow-400">
                 Advanced Safety Features
               </h2>
-              <p className="text-gray-300 mb-6">
+              <p className="text-yellow-100 mb-6">
                 Our vehicles are equipped with state-of-the-art safety
                 technology to ensure peace of mind.
               </p>
@@ -97,13 +109,13 @@ const SafetyPage = () => {
                     <span className="flex-shrink-0 w-5 h-5 mt-0.5 mr-3 text-yellow-500">
                       ✓
                     </span>
-                    <span className="text-gray-300">{feature}</span>
+                    <span className="text-yellow-100">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-gray-800 rounded-xl p-2 border border-gray-700">
-              <div className="bg-gray-900 rounded-lg overflow-hidden aspect-video relative">
+            <div className="bg-black rounded-xl p-2 border border-yellow-500/30">
+              <div className="bg-black rounded-lg overflow-hidden aspect-video relative">
                 <Image
                   src="/safety-features.jpg"
                   alt="Safety Features"
@@ -117,7 +129,7 @@ const SafetyPage = () => {
       </section>
 
       {/* Driver Standards */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-900">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">
@@ -154,15 +166,15 @@ const SafetyPage = () => {
             ].map((standard, index) => (
               <div
                 key={index}
-                className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-colors"
+                className="bg-black p-6 rounded-xl border border-yellow-500/30 hover:border-yellow-500/50 transition-colors"
               >
                 <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-lg bg-gray-700 mr-4">
+                  <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/30 mr-4">
                     {standard.icon}
                   </div>
                   <h3 className="text-xl font-bold">{standard.title}</h3>
                 </div>
-                <p className="text-gray-300">{standard.description}</p>
+                <p className="text-yellow-100">{standard.description}</p>
               </div>
             ))}
           </div>
@@ -179,24 +191,48 @@ const SafetyPage = () => {
             <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              "/cert-iso.png",
-              "/cert-dot.png",
-              "/cert-nsaf.png",
-              "/cert-ohsas.png",
+              {
+                icon: <Award className="w-12 h-12 text-yellow-400" />,
+                title: "ISO 9001:2015",
+                description: "Quality Management System",
+                color: "from-yellow-500/20 to-yellow-600/10",
+              },
+              {
+                icon: <Shield className="w-12 h-12 text-yellow-400" />,
+                title: "DOT Compliance",
+                description: "Department of Transportation",
+                color: "from-yellow-500/20 to-yellow-600/10",
+              },
+              {
+                icon: <CheckCircle className="w-12 h-12 text-yellow-400" />,
+                title: "NSAF Certified",
+                description: "National Safety Authority",
+                color: "from-yellow-500/20 to-yellow-600/10",
+              },
+              {
+                icon: <Badge className="w-12 h-12 text-yellow-400" />,
+                title: "OHSAS 18001",
+                description: "Occupational Health & Safety",
+                color: "from-yellow-500/20 to-yellow-600/10",
+              },
             ].map((cert, index) => (
               <div
                 key={index}
-                className="bg-gray-800 p-6 rounded-lg border border-gray-700"
+                className={`relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-gradient-to-br ${cert.color} p-6 text-center`}
               >
-                <div className="relative h-20 w-full">
-                  <Image
-                    src={cert}
-                    alt="Certification"
-                    fill
-                    className="object-contain"
-                  />
+                <div className="pointer-events-none absolute -top-8 -right-8 w-24 h-24 rounded-full bg-yellow-400/10 blur-2xl" />
+                <div className="pointer-events-none absolute -bottom-8 -left-8 w-24 h-24 rounded-full bg-yellow-300/5 blur-2xl" />
+
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="mb-4 p-4 rounded-full bg-yellow-500/10 border border-yellow-500/30">
+                    {cert.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {cert.title}
+                  </h3>
+                  <p className="text-yellow-100 text-sm">{cert.description}</p>
                 </div>
               </div>
             ))}

@@ -101,7 +101,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           <div className="text-sm text-gray-300">Logged in as Admin</div>
         </header>
 
-        <div className="flex-1 p-6 overflow-y-auto">{children}</div>
+        <div className="flex-1 p-6 overflow-y-auto relative z-10">
+          {children}
+        </div>
       </main>
     </div>
   );

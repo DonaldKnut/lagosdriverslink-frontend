@@ -147,7 +147,7 @@ export const seoConfigs = {
   contact: {
     title: "Contact Lagos Drivers Link | Get in Touch",
     description:
-      "Contact Lagos Drivers Link for professional driver services. Call +234-903-270-2233 or visit our Lagos office. Get quotes, support, and driver bookings.",
+      "Contact Lagos Drivers Link for professional driver services. Call +234-706-620-8246 or visit our Lagos offices in Lekki (24a Bashorun Okunsanya St, off Admiralty) or 94 Badore Road, Ajah. Get quotes, support, and driver bookings.",
     keywords: [
       "contact Lagos drivers",
       "Lagos Drivers Link contact",

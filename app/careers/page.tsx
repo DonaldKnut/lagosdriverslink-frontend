@@ -22,7 +22,7 @@ const CareersPage = () => {
       type: "Full-time",
       location: "Port Harcourt",
       department: "Customer Service",
-      salary: "₦180,000 - ₦250,000/mo",
+      salary: "₦195,000 - ₦250,000/mo",
     },
     {
       title: "Business Development Executive",

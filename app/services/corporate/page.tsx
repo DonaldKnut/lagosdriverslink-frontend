@@ -18,14 +18,14 @@ const CorporateServicesPage = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-900">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">
               Our Corporate Solutions
             </h2>
             <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-yellow-100 max-w-2xl mx-auto">
               Comprehensive services designed for businesses of all sizes.
             </p>
           </div>
@@ -101,18 +101,18 @@ const CorporateServicesPage = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 hover:-translate-y-2"
+                className="bg-black rounded-xl p-6 border border-yellow-500/30 hover:border-yellow-500/50 transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-lg bg-gray-700 mr-4">
+                  <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/30 mr-4">
                     {service.icon}
                   </div>
                   <h3 className="text-xl font-bold">{service.title}</h3>
                 </div>
-                <p className="text-gray-300 mb-4">{service.description}</p>
+                <p className="text-yellow-100 mb-4">{service.description}</p>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-gray-400">
+                    <li key={i} className="flex items-center text-yellow-100">
                       <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 mr-2"></span>
                       {feature}
                     </li>
@@ -137,7 +137,7 @@ const CorporateServicesPage = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-yellow-400">
             Ready to Elevate Your Corporate Transportation?
           </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-yellow-100 mb-8 max-w-2xl mx-auto">
             Our team is ready to design a custom solution that meets your exact
             business requirements.
           </p>

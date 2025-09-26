@@ -20,7 +20,7 @@ const AboutPage = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-900">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">
@@ -34,7 +34,7 @@ const AboutPage = () => {
               <h3 className="text-2xl font-bold mb-4 text-yellow-300">
                 Mission
               </h3>
-              <p className="text-gray-300 mb-6">
+              <p className="text-yellow-100 mb-6">
                 To revolutionize corporate transportation in Nigeria through
                 innovative solutions, exceptional service, and uncompromising
                 safety standards.
@@ -42,13 +42,13 @@ const AboutPage = () => {
               <h3 className="text-2xl font-bold mb-4 text-yellow-300">
                 Vision
               </h3>
-              <p className="text-gray-300">
+              <p className="text-yellow-100">
                 To become Africa&apos;s most trusted corporate mobility partner,
                 setting industry benchmarks for reliability and customer
                 satisfaction.
               </p>
             </div>
-            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+            <div className="bg-gray-900 rounded-xl p-8 border border-yellow-500/30">
               <div className="relative w-full aspect-video">
                 <Image
                   src="/about-mission.jpg"
@@ -90,13 +90,13 @@ const AboutPage = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800"
+                className="bg-gray-900 rounded-xl p-6 text-center border border-yellow-500/30"
               >
                 <div className="flex justify-center mb-4">{item.icon}</div>
                 <div className="text-4xl font-bold text-yellow-400 mb-2">
                   {item.value}
                 </div>
-                <p className="text-gray-400">{item.label}</p>
+                <p className="text-yellow-100">{item.label}</p>
               </div>
             ))}
           </div>

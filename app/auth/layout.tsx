@@ -95,7 +95,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
       </div>
 
       {/* Form Content */}
-      <div className="w-full md:w-1/2 h-full overflow-y-auto bg-gray-900 text-white px-6 py-10 flex flex-col items-center justify-start">
+      <div className="w-full md:w-1/2 h-full overflow-y-auto bg-black text-white px-6 py-10 flex flex-col items-center justify-start">
         <div className="w-full max-w-md mt-6">{children}</div>
       </div>
     </div>

@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/app/components/ui/badge";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/app/components/ui/card";
 import { Button } from "@/app/components/ui/button";
 import {
@@ -22,54 +22,57 @@ import {
   TableRow,
 } from "@/app/components/ui/table";
 import { SearchInput } from "@/app/components/ui/search-input";
+import { useToast } from "@/app/components/Toast";
 
-// Mock data - replace with your API calls
-const approvalRequests = [
-  {
-    id: "REQ-1001",
-    user: "John Doe",
-    type: "Driver Registration",
-    date: "2023-11-15",
-    status: "pending",
-    details: "New driver application",
-  },
-  {
-    id: "REQ-1002",
-    user: "Jane Smith",
-    type: "Vehicle Approval",
-    date: "2023-11-14",
-    status: "approved",
-    details: "Toyota Camry 2020",
-  },
-  {
-    id: "REQ-1003",
-    user: "Mike Johnson",
-    type: "Document Upload",
-    date: "2023-11-13",
-    status: "rejected",
-    details: "Insurance document expired",
-  },
-  {
-    id: "REQ-1004",
-    user: "Sarah Williams",
-    type: "Profile Update",
-    date: "2023-11-12",
-    status: "pending",
-    details: "Changed phone number",
-  },
-  {
-    id: "REQ-1005",
-    user: "David Brown",
-    type: "Vehicle Approval",
-    date: "2023-11-11",
-    status: "pending",
-    details: "Honda Accord 2019",
-  },
-];
+interface ApprovalRequest {
+  id: string;
+  user: string;
+  type: string;
+  date: string;
+  status: "pending" | "approved" | "rejected";
+  details: string;
+  timestamp: string;
+}
+
+interface ApprovalStats {
+  pending: number;
+  approvedToday: number;
+  rejectedToday: number;
+}
 
 export default function ApprovalsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
+  const [approvalRequests, setApprovalRequests] = useState<ApprovalRequest[]>(
+    []
+  );
+  const [stats, setStats] = useState<ApprovalStats | null>(null);
+  const [loading, setLoading] = useState(true);
+  const { trigger } = useToast();
+
+  useEffect(() => {
+    const fetchApprovalsData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("/api/dashboard/approvals");
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch approvals data");
+        }
+
+        const data = await response.json();
+        setApprovalRequests(data.approvals);
+        setStats(data.stats);
+      } catch (error) {
+        console.error("Error fetching approvals data:", error);
+        trigger("error", "Failed to load approvals data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchApprovalsData();
+  }, [trigger]);
 
   const filteredRequests = approvalRequests.filter((request) => {
     const matchesSearch =
@@ -92,6 +95,41 @@ export default function ApprovalsPage() {
         return <AlertTriangle className="h-4 w-4 text-gray-500" />;
     }
   };
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+          <div className="animate-pulse">
+            <div className="h-6 bg-gray-700 rounded w-48 mb-2"></div>
+            <div className="h-4 bg-gray-700 rounded w-64"></div>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {[...Array(3)].map((_, i) => (
+            <Card key={i} className="p-4 animate-pulse">
+              <div className="h-16 bg-gray-700 rounded"></div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (!stats) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700">
+          <h2 className="text-2xl font-bold text-amber-100">
+            Error Loading Approvals
+          </h2>
+          <p className="text-gray-300 mt-2">
+            Unable to load approvals data. Please try refreshing the page.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -131,7 +169,7 @@ export default function ApprovalsPage() {
           <div className="flex justify-between items-center">
             <div>
               <p className="text-sm text-gray-400">Pending Approvals</p>
-              <p className="text-2xl font-bold">12</p>
+              <p className="text-2xl font-bold">{stats.pending}</p>
             </div>
             <div className="p-3 rounded-full bg-amber-500/10">
               <Clock className="h-5 w-5 text-amber-500" />
@@ -142,7 +180,7 @@ export default function ApprovalsPage() {
           <div className="flex justify-between items-center">
             <div>
               <p className="text-sm text-gray-400">Approved Today</p>
-              <p className="text-2xl font-bold">5</p>
+              <p className="text-2xl font-bold">{stats.approvedToday}</p>
             </div>
             <div className="p-3 rounded-full bg-green-500/10">
               <Check className="h-5 w-5 text-green-500" />
@@ -153,7 +191,7 @@ export default function ApprovalsPage() {
           <div className="flex justify-between items-center">
             <div>
               <p className="text-sm text-gray-400">Rejected Today</p>
-              <p className="text-2xl font-bold">2</p>
+              <p className="text-2xl font-bold">{stats.rejectedToday}</p>
             </div>
             <div className="p-3 rounded-full bg-red-500/10">
               <X className="h-5 w-5 text-red-500" />
@@ -163,7 +201,7 @@ export default function ApprovalsPage() {
       </div>
 
       {/* Approval Requests Table */}
-      <Card>
+      <Card className="relative z-10">
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
@@ -194,8 +232,8 @@ export default function ApprovalsPage() {
                       request.status === "approved"
                         ? "success"
                         : request.status === "rejected"
-                        ? "destructive"
-                        : "warning"
+                          ? "destructive"
+                          : "warning"
                     }
                     className="flex items-center gap-1"
                   >
