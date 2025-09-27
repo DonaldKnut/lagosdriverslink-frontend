@@ -60,3 +60,4 @@ export const salaryRates = {
 export type DriverPlanId = keyof typeof driverPlans;
 export type DriverPlan = (typeof driverPlans)[DriverPlanId];
 
+

@@ -19,3 +19,4 @@ export type NavigationLink = (typeof navigationLinks)[number];
 export type AuthRoute = (typeof authRoutes)[number];
 export type ProtectedRoute = (typeof protectedRoutes)[number];
 
+

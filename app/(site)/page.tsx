@@ -46,18 +46,20 @@ export default async function HomePage() {
     heroTitle:
       data?.heroTitle ?? "Professional Drivers - Hire a Pro Driver in Lagos",
     heroSubtitle:
-      data?.heroSubtitle ??
-      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Pre-vetted professionals for all driving needs",
-    heroImage: data?.heroImage?.asset?.url ?? `${BASE_URL}/ldl_logo.png`,
+      data?.heroSubtitle ?? "Pre-vetted professionals for all driving needs",
+    heroImage:
+      data?.heroImage?.asset?.url ??
+      `${BASE_URL}/Whisk_cto1gtyyqgn4kjm40inxedotuwy3qtlhr2yi1yy.jpeg`,
     ctaText: data?.ctaText ?? "Book a Driver",
     ctaLink: data?.ctaLink ?? "/hire",
   };
 
   const freerowProps = {
     heroTitle: "Professional Drivers - Hire a Pro Driver in Lagos",
-    heroSubtitle:
-      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Pre-vetted professionals for all driving needs",
-    heroImage: data?.heroImage?.asset?.url ?? `${BASE_URL}/ldl_logo.png`,
+    heroSubtitle: "Pre-vetted professionals for all driving needs",
+    heroImage:
+      data?.heroImage?.asset?.url ??
+      `${BASE_URL}/Whisk_cto1gtyyqgn4kjm40inxedotuwy3qtlhr2yi1yy.jpeg`,
     ctaText: data?.ctaText ?? "Book a Driver",
     ctaLink: data?.ctaLink ?? "/hire",
   };

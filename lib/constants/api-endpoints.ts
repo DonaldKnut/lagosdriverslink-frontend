@@ -23,3 +23,4 @@ export type ApiEndpoint =
   | (typeof apiEndpoints)[keyof typeof apiEndpoints]
   | string;
 
+

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Lagos Drivers Link",
   },
   description:
-    "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, experienced chauffeurs for corporate, private, and logistics needs. Book your professional driver today!",
+    "Professional Drivers - Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
   keywords: [
     "Lagos drivers",
     "professional drivers Lagos",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title:
       "Professional Drivers Lagos - Hire a Pro Driver in Lagos | Lagos Drivers Link",
     description:
-      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, experienced chauffeurs available 24/7.",
+      "Professional Drivers - Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
     siteName: "Lagos Drivers Link",
     images: [
       {
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title:
       "Professional Drivers Lagos - Hire a Pro Driver in Lagos | Lagos Drivers Link",
     description:
-      "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Verified, experienced chauffeurs available 24/7.",
+      "Professional Drivers - Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
     images: ["/og-image.jpg"],
     creator: "@lagosdriverslink",
   },
