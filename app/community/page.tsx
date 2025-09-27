@@ -120,27 +120,27 @@ export default function CommunityPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black py-20">
+      <section className="bg-black text-white py-20">
         <div className="w-[85%] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">Community</h1>
-              <p className="text-xl mb-8 text-gray-800">
+              <p className="text-xl mb-8 text-gray-300">
                 Join Nigeria's largest network of professional drivers. Connect,
                 learn, and grow together in our supportive community.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/driver-request"
-                  className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-center"
+                  className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600 transition-colors text-center"
                 >
                   Join Our Community
                 </Link>
                 <Link
                   href="#events"
-                  className="border-2 border-black text-black px-8 py-4 rounded-lg font-semibold hover:bg-black hover:text-white transition-colors text-center"
+                  className="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 hover:text-black transition-colors text-center"
                 >
                   View Events
                 </Link>
@@ -161,13 +161,13 @@ export default function CommunityPage() {
       </section>
 
       {/* Community Stats */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-black">
         <div className="w-[85%] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Our Growing Community
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-300">
               Join thousands of drivers who are part of our thriving community
             </p>
           </div>
@@ -176,13 +176,13 @@ export default function CommunityPage() {
             {communityStats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-lg text-center"
+                className="bg-black border border-yellow-700/50 p-6 rounded-lg shadow-lg text-center"
               >
                 <div className="text-yellow-500 mb-4 flex justify-center">
                   {stat.icon}
                 </div>
                 <div className="text-3xl font-bold mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -196,7 +196,7 @@ export default function CommunityPage() {
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               What Our Community Offers
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Be part of a supportive network that helps you succeed as a
               professional driver.
             </p>
@@ -206,13 +206,13 @@ export default function CommunityPage() {
             {communityFeatures.map((feature, index) => (
               <div
                 key={index}
-                className="bg-gray-50 p-6 rounded-lg shadow-lg text-center"
+                className="bg-black border border-yellow-700/50 p-6 rounded-lg shadow-lg text-center"
               >
                 <div className="text-yellow-500 mb-4 flex justify-center">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-gray-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -220,27 +220,30 @@ export default function CommunityPage() {
       </section>
 
       {/* Upcoming Events */}
-      <section id="events" className="py-20 bg-gray-50">
+      <section id="events" className="py-20 bg-black">
         <div className="w-[85%] mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Upcoming Events
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-300">
               Join our community events and activities
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {upcomingEvents.map((event, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+              <div
+                key={index}
+                className="bg-black border border-yellow-700/50 p-6 rounded-lg shadow-lg"
+              >
                 <div className="flex items-center mb-4">
                   <Calendar className="h-5 w-5 text-yellow-500 mr-2" />
-                  <span className="text-sm text-gray-500">{event.date}</span>
+                  <span className="text-sm text-gray-400">{event.date}</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{event.title}</h3>
-                <p className="text-gray-600 mb-3">{event.description}</p>
-                <p className="text-sm text-gray-500">{event.location}</p>
+                <p className="text-gray-300 mb-3">{event.description}</p>
+                <p className="text-sm text-gray-400">{event.location}</p>
               </div>
             ))}
           </div>
@@ -254,14 +257,17 @@ export default function CommunityPage() {
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Community Stories
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-300">
               Hear from drivers who are thriving in our community
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-lg">
+              <div
+                key={index}
+                className="bg-black border border-yellow-700/50 p-6 rounded-lg shadow-lg"
+              >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
@@ -270,12 +276,12 @@ export default function CommunityPage() {
                     />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 italic">
+                <p className="text-gray-300 mb-4 italic">
                   "{testimonial.content}"
                 </p>
                 <div>
                   <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                  <p className="text-gray-400 text-sm">{testimonial.role}</p>
                 </div>
               </div>
             ))}
@@ -284,7 +290,7 @@ export default function CommunityPage() {
       </section>
 
       {/* Community Guidelines */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-black">
         <div className="w-[85%] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -294,32 +300,32 @@ export default function CommunityPage() {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     Respect all community members and maintain professional
                     conduct
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     Share knowledge and experiences to help others succeed
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     Follow platform policies and safety guidelines
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     Report any inappropriate behavior or safety concerns
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     Participate actively and contribute positively to
                     discussions
                   </p>
@@ -358,7 +364,7 @@ export default function CommunityPage() {
             </Link>
             <Link
               href="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors"
+              className="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 hover:text-black transition-colors"
             >
               Learn More
             </Link>

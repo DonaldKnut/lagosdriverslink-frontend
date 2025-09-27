@@ -73,3 +73,4 @@ export default function SalaryPlans() {
     </section>
   );
 }
+

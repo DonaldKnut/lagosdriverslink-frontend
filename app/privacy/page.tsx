@@ -232,7 +232,7 @@ export default function PrivacyPolicyPage() {
               <div className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
                 <p className="font-semibold mb-2">Lagos Drivers Link</p>
                 <p>Email: privacy@lagosdriverslink.com</p>
-                <p>Phone: +234 706 620 8246</p>
+                <p>Phone: +234 903 270 2233</p>
                 <p>
                   Address: 24a Bashorun Okunsanya Street, Off Admiralty Way,
                   Lekki Phase 1, Lagos

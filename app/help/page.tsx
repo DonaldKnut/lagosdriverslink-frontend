@@ -1,4 +1,13 @@
-import { HelpCircle, Phone, Mail, MessageSquare, AlertCircle, ArrowRight, Shield, Clock } from "lucide-react";
+import {
+  HelpCircle,
+  Phone,
+  Mail,
+  MessageSquare,
+  AlertCircle,
+  ArrowRight,
+  Shield,
+  Clock,
+} from "lucide-react";
 
 const HelpPage = () => {
   const faqs = [
@@ -79,7 +88,7 @@ const HelpPage = () => {
                 description: "Available Mon-Fri, 8am-6pm WAT",
                 contact: "Start chat from any page",
                 action: "Chat Now",
-                href: "https://wa.me/2347066208246",
+                href: "https://wa.me/2349032702233",
               },
             ].map((option, index) => (
               <div
@@ -159,13 +168,15 @@ const HelpPage = () => {
                   </h2>
                 </div>
                 <p className="text-gray-300 mb-6 text-lg">
-                  For immediate assistance with an active booking or urgent matters, 
-                  our emergency line is available 24/7.
+                  For immediate assistance with an active booking or urgent
+                  matters, our emergency line is available 24/7.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Shield className="w-5 h-5 text-yellow-400" />
-                    <span className="text-yellow-100">24/7 Emergency Support</span>
+                    <span className="text-yellow-100">
+                      24/7 Emergency Support
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-yellow-400" />
@@ -180,7 +191,7 @@ const HelpPage = () => {
                   Call Emergency Line: +234 903 270 2233
                 </a>
               </div>
-              
+
               {/* Illustrations */}
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
@@ -188,25 +199,33 @@ const HelpPage = () => {
                     <div className="bg-yellow-500/20 p-3 rounded-full w-fit mx-auto mb-3">
                       <Phone className="w-6 h-6 text-yellow-400" />
                     </div>
-                    <div className="text-yellow-200 text-sm font-semibold">Emergency Call</div>
+                    <div className="text-yellow-200 text-sm font-semibold">
+                      Emergency Call
+                    </div>
                   </div>
                   <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-center">
                     <div className="bg-yellow-500/20 p-3 rounded-full w-fit mx-auto mb-3">
                       <Shield className="w-6 h-6 text-yellow-400" />
                     </div>
-                    <div className="text-yellow-200 text-sm font-semibold">24/7 Support</div>
+                    <div className="text-yellow-200 text-sm font-semibold">
+                      24/7 Support
+                    </div>
                   </div>
                   <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-center">
                     <div className="bg-yellow-500/20 p-3 rounded-full w-fit mx-auto mb-3">
                       <Clock className="w-6 h-6 text-yellow-400" />
                     </div>
-                    <div className="text-yellow-200 text-sm font-semibold">Quick Response</div>
+                    <div className="text-yellow-200 text-sm font-semibold">
+                      Quick Response
+                    </div>
                   </div>
                   <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-center">
                     <div className="bg-yellow-500/20 p-3 rounded-full w-fit mx-auto mb-3">
                       <AlertCircle className="w-6 h-6 text-yellow-400" />
                     </div>
-                    <div className="text-yellow-200 text-sm font-semibold">Urgent Help</div>
+                    <div className="text-yellow-200 text-sm font-semibold">
+                      Urgent Help
+                    </div>
                   </div>
                 </div>
               </div>

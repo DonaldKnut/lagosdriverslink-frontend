@@ -18,11 +18,21 @@ export default function ProcessingFeesHighlight() {
       ],
       note: "Note: Businesses wanting worry-free driver management",
       popular: true,
-      detailedInfo: `In this plan, driver(s) are assigned to clients but all issues relating to salaries, statutory payments, promotion, benefits and other personnel and administrative matters are handled by LagosDriversLink. We also carry out background checks, security checks on the drivers and maintain our findings in a dedicated file for the driver, not transferable to the client. This means that LagosDriversLink serves as the ultimate guarantor for the driver(s). 
+      detailedInfo: `Under this service model, LagosDriversLink handles all HR administration for your assigned driver, ensuring complete personnel management without any administrative burden on your organization.
 
-Also, the client is entitled to up to 3 free replacements within a year where the driver resigns, sick or is dismissed from the contract. This plan attracts a Service Charge of ₦50,000 per request which entitles you to see 2 driver candidates to select from. This one-time, non-refundable fee covers the cost of training, verification and background checks for one driver. It is not the same as the monthly salary of the driver which is only paid every month end after the commencement of the contract.
+**Complete HR Oversight**
+LagosDriversLink manages all human resources matters including salary processing, statutory payments, benefits administration, and personnel records. Our dedicated HR team handles every aspect of driver employment, allowing you to focus entirely on your business operations.
 
-In summary, the driver remains the staff of LagosDriversLink and is only assigned to the client for the period of contract. He can be changed or released at the discretion of the client in line with our replacement policy or termination of contract policy.`,
+**Qualified Staff Retention**
+The assigned driver remains our qualified staff member throughout the contract period. This ensures consistent professional standards, accountability, and service quality directly managed by LagosDriversLink.
+
+**Comprehensive Training & Verification**
+Every driver undergoes comprehensive training and verification processes. Our thorough onboarding covers background checks, security clearances, skill assessments, periodic training, reverification, address confirmation, and guarantor verification to ensure the highest service standards.
+
+**Flexible Replacement Policy**
+Should replacement be necessary, we provide qualified substitutes at a subsidized fee. This ensures minimal disruption to your operations while maintaining the same high standards of service and professionalism.
+
+This model provides you with professional driver services while LagosDriversLink maintains complete administrative control and accountability through our established HR infrastructure.`,
     },
     {
       name: "Direct Employment Plan",

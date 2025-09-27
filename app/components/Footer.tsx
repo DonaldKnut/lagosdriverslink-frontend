@@ -156,7 +156,10 @@ export default function PremiumFooter() {
           <div className="flex flex-wrap justify-center gap-4">
             <div className="text-gray-300 text-xs sm:text-sm flex items-center gap-2 bg-white/5 px-3 py-2 rounded-md">
               <span className="font-semibold text-white">Head Office:</span>
-              <span>24a Bashorun Okunsanya Street, Off Admiralty Way, Lekki Phase 1, Lagos</span>
+              <span>
+                24a Bashorun Okunsanya Street, Off Admiralty Way, Lekki Phase 1,
+                Lagos
+              </span>
             </div>
             <div className="text-gray-300 text-xs sm:text-sm flex items-center gap-2 bg-white/5 px-3 py-2 rounded-md">
               <span className="font-semibold text-white">Alt:</span>
@@ -188,11 +191,11 @@ export default function PremiumFooter() {
               teams@lagosdriverslink.com
             </Link>
             <Link
-              href="tel:+2347066208246"
+              href="tel:+2349032702233"
               className="flex items-center text-gray-300 hover:text-yellow-500 text-sm"
             >
-              <Phone className="h-4 w-4 mr-1 text-yellow-500" /> +234 706 620
-              8246
+              <Phone className="h-4 w-4 mr-1 text-yellow-500" /> +234 903 270
+              2233
             </Link>
             <Link
               href="#"

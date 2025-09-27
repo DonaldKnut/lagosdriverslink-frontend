@@ -5,7 +5,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
-        // Optionally, you can add these:
         port: "",
         pathname: "/images/**",
       },
@@ -21,8 +20,21 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: "lagosdriverslink.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
+        pathname: "/**",
+      },
     ],
-    // domains: ['cdn.sanity.io'], // Older method (still works but remotePatterns is preferred)
+    // Allow unoptimized images for development
+    unoptimized: process.env.NODE_ENV === "development",
   },
 };
 

@@ -90,3 +90,4 @@ Useful quick checks
 - `rg "ProcessingFeesHighlight" app -n`
 - `rg "SalaryPlansHighlight" app -n`
 - Confirm import lines and component order inside `app/(site)/page.tsx` JSX.
+

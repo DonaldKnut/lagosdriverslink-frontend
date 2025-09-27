@@ -37,11 +37,11 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
           },
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+234-706-620-8246",
+            telephone: "+234-903-270-2233",
             contactType: "customer service",
             availableLanguage: ["English"],
           },
-          sameAs: ["https://wa.me/2347066208246"],
+          sameAs: ["https://wa.me/2349032702233"],
           serviceArea: {
             "@type": "GeoCircle",
             geoMidpoint: {
@@ -93,7 +93,7 @@ export const StructuredData: React.FC<StructuredDataProps> = ({
           description:
             "Professional drivers, hire a professional driver, get a pro driver in Lagos. Recruit professional drivers and hire a pro driver in Lagos. Professional driver services in Lagos, Nigeria",
           url: "https://lagosdriverslink.com",
-          telephone: "+234-706-620-8246",
+          telephone: "+234-903-270-2233",
           address: {
             "@type": "PostalAddress",
             streetAddress:

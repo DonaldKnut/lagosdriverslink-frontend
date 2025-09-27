@@ -1,183 +1,183 @@
+import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
-  Shield,
+  BookOpen,
+  Download,
+  Eye,
+  CheckCircle,
   Car,
-  Users,
+  Shield,
   Clock,
+  Users,
   MapPin,
   Phone,
-  AlertTriangle,
-  CheckCircle,
-  Star,
-  Download,
 } from "lucide-react";
 
-const handbookSections = [
-  {
-    id: "safety",
-    title: "Safety Protocols",
-    icon: <Shield className="w-8 h-8" />,
-    description:
-      "Essential safety guidelines and protocols for professional driving",
-    topics: [
-      "Vehicle inspection checklist",
-      "Emergency procedures",
-      "Defensive driving techniques",
-      "Weather-related safety",
-      "Incident reporting",
-    ],
-  },
-  {
-    id: "professionalism",
-    title: "Professional Standards",
-    icon: <Star className="w-8 h-8" />,
-    description: "Maintaining the highest standards of professional conduct",
-    topics: [
-      "Dress code and appearance",
-      "Communication with clients",
-      "Punctuality and reliability",
-      "Confidentiality and discretion",
-      "Customer service excellence",
-    ],
-  },
-  {
-    id: "navigation",
-    title: "Lagos Navigation",
-    icon: <MapPin className="w-8 h-8" />,
-    description: "Mastering Lagos roads and traffic patterns",
-    topics: [
-      "Major routes and landmarks",
-      "Traffic patterns and peak hours",
-      "Alternative routes and shortcuts",
-      "Parking and waiting areas",
-      "GPS and navigation tools",
-    ],
-  },
-  {
-    id: "vehicle-care",
-    title: "Vehicle Maintenance",
-    icon: <Car className="w-8 h-8" />,
-    description: "Keeping your vehicle in optimal condition",
-    topics: [
-      "Daily inspection routine",
-      "Basic maintenance tasks",
-      "Fuel efficiency tips",
-      "Cleaning and presentation",
-      "Reporting mechanical issues",
-    ],
-  },
-  {
-    id: "client-relations",
-    title: "Client Relations",
-    icon: <Users className="w-8 h-8" />,
-    description: "Building and maintaining positive client relationships",
-    topics: [
-      "First impressions",
-      "Communication best practices",
-      "Handling special requests",
-      "Conflict resolution",
-      "Building client loyalty",
-    ],
-  },
-  {
-    id: "scheduling",
-    title: "Scheduling & Time Management",
-    icon: <Clock className="w-8 h-8" />,
-    description: "Effective time management and scheduling",
-    topics: [
-      "Route planning and optimization",
-      "Buffer time management",
-      "Handling delays and disruptions",
-      "Multi-stop trips",
-      "End-of-day procedures",
-    ],
-  },
-];
-
-const quickTips = [
-  {
-    icon: <CheckCircle className="w-6 h-6 text-green-400" />,
-    tip: "Always arrive 5-10 minutes early for pickups",
-  },
-  {
-    icon: <CheckCircle className="w-6 h-6 text-green-400" />,
-    tip: "Keep your vehicle clean and well-maintained at all times",
-  },
-  {
-    icon: <CheckCircle className="w-6 h-6 text-green-400" />,
-    tip: "Maintain professional communication with all clients",
-  },
-  {
-    icon: <CheckCircle className="w-6 h-6 text-green-400" />,
-    tip: "Follow all traffic laws and safety regulations",
-  },
-  {
-    icon: <CheckCircle className="w-6 h-6 text-green-400" />,
-    tip: "Report any incidents or issues immediately",
-  },
-];
-
-const emergencyContacts = [
-  {
-    name: "Lagos Drivers Link Support",
-    number: "+234-706-620-8246",
-    description: "24/7 driver support hotline",
-  },
-  {
-    name: "Emergency Services",
-    number: "199",
-    description: "Police, Fire, Ambulance",
-  },
-  {
-    name: "Lagos Traffic Management",
-    number: "+234-1-270-0000",
-    description: "Traffic control and assistance",
-  },
-];
+export const metadata: Metadata = {
+  title: "Driver Handbook | Lagos Drivers Link",
+  description:
+    "Complete guide for drivers on Lagos Drivers Link platform. Learn about policies, procedures, safety guidelines, and best practices for professional driving.",
+  keywords:
+    "driver handbook, driver guide, driving policies, safety guidelines, professional driving, Lagos drivers",
+};
 
 export default function DriverHandbookPage() {
+  const handbookSections = [
+    {
+      icon: <Car className="h-6 w-6" />,
+      title: "Vehicle Requirements",
+      content: [
+        "Valid vehicle registration and insurance",
+        "Regular maintenance and safety inspections",
+        "Clean and well-maintained interior and exterior",
+        "Working air conditioning and heating",
+        "First aid kit and emergency equipment",
+      ],
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      title: "Safety Guidelines",
+      content: [
+        "Always wear seatbelts and ensure passengers do the same",
+        "Follow speed limits and traffic regulations",
+        "Maintain safe following distances",
+        "Avoid distracted driving (no phone use while driving)",
+        "Report any safety incidents immediately",
+      ],
+    },
+    {
+      icon: <Users className="h-6 w-6" />,
+      title: "Customer Service",
+      content: [
+        "Greet passengers professionally and courteously",
+        "Assist with luggage and personal items",
+        "Maintain professional appearance and hygiene",
+        "Respect passenger privacy and preferences",
+        "Handle complaints professionally and escalate when needed",
+      ],
+    },
+    {
+      icon: <Clock className="h-6 w-6" />,
+      title: "Punctuality",
+      content: [
+        "Arrive 5 minutes before scheduled pickup time",
+        "Notify passengers of any delays immediately",
+        "Plan routes to account for traffic conditions",
+        "Update ETA if circumstances change",
+        "Wait for passengers for reasonable time periods",
+      ],
+    },
+    {
+      icon: <MapPin className="h-6 w-6" />,
+      title: "Navigation",
+      content: [
+        "Use GPS navigation systems effectively",
+        "Know major landmarks and routes in Lagos",
+        "Plan alternative routes for traffic avoidance",
+        "Stay updated on road closures and construction",
+        "Communicate route choices with passengers when appropriate",
+      ],
+    },
+    {
+      icon: <Phone className="h-6 w-6" />,
+      title: "Communication",
+      content: [
+        "Respond to booking requests promptly",
+        "Maintain clear communication with passengers",
+        "Use professional language at all times",
+        "Report issues to support team immediately",
+        "Keep contact information updated",
+      ],
+    },
+  ];
+
+  const policies = [
+    {
+      title: "Code of Conduct",
+      description:
+        "Professional behavior standards and ethical guidelines for all drivers on our platform.",
+    },
+    {
+      title: "Payment Policy",
+      description:
+        "How payments are processed, when you'll receive payments, and fee structures.",
+    },
+    {
+      title: "Cancellation Policy",
+      description:
+        "Guidelines for handling cancellations, no-shows, and refunds.",
+    },
+    {
+      title: "Rating System",
+      description:
+        "How the rating system works and how to maintain high ratings.",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Header spacing */}
-      <div className="h-[88px]"></div>
-
       {/* Hero Section */}
-      <section className="py-20 px-6 sm:px-12 md:px-16 lg:px-24 bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
-              Driver Handbook
-            </span>
-          </h1>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Your comprehensive guide to professional driving excellence with
-            Lagos Drivers Link. Master the skills, standards, and practices that
-            set our drivers apart.
-          </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-yellow-500 to-yellow-400 mx-auto rounded-full mb-8"></div>
-
-          {/* Download Button */}
-          <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black rounded-lg font-semibold text-lg hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-yellow-500/50">
-            <Download className="w-5 h-5 mr-2" />
-            Download PDF Version
-          </button>
+      <section className="bg-black text-white py-20">
+        <div className="w-[85%] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+                Driver Handbook
+              </h1>
+              <p className="text-xl mb-8 text-gray-300">
+                Your complete guide to success on the Lagos Drivers Link
+                platform. Learn about policies, procedures, and best practices
+                for professional driving.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600 transition-colors flex items-center justify-center">
+                  <Download className="h-5 w-5 mr-2" />
+                  Download PDF
+                </button>
+                <Link
+                  href="/driver-request"
+                  className="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 hover:text-black transition-colors text-center"
+                >
+                  Join Our Network
+                </Link>
+              </div>
+            </div>
+            <div className="relative">
+              <Image
+                src="/confident-professional-driver-side-view-600nw-2149539983.webp"
+                alt="Professional Driver with Handbook"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-2xl"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Quick Tips */}
-      <section className="py-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-gray-900">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-yellow-100 mb-8 text-center">
-            Quick Tips for Success
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {quickTips.map((item, index) => (
+      {/* Quick Access */}
+      <section className="py-16 bg-black">
+        <div className="w-[85%] mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Quick Access
+            </h2>
+            <p className="text-xl text-gray-300">
+              Jump to the section you need most
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {policies.map((policy, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 p-6 bg-gray-800/50 rounded-xl border border-gray-700"
+                className="bg-black border border-yellow-700/50 p-6 rounded-lg shadow-lg text-center hover:shadow-yellow-500/20 transition-shadow"
               >
-                {item.icon}
-                <p className="text-gray-300">{item.tip}</p>
+                <BookOpen className="h-8 w-8 text-yellow-500 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">{policy.title}</h3>
+                <p className="text-gray-300 text-sm">{policy.description}</p>
               </div>
             ))}
           </div>
@@ -185,136 +185,182 @@ export default function DriverHandbookPage() {
       </section>
 
       {/* Handbook Sections */}
-      <section className="py-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-black">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-yellow-100 mb-12 text-center">
-            Handbook Sections
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {handbookSections.map((section) => (
+      <section className="py-20">
+        <div className="w-[85%] mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Essential Guidelines
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Follow these guidelines to provide excellent service and maintain
+              your status as a professional driver.
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {handbookSections.map((section, index) => (
               <div
-                key={section.id}
-                className="bg-gray-900/50 rounded-xl p-8 border border-gray-800 hover:border-yellow-500/50 transition-all duration-300 hover:-translate-y-1 group"
+                key={index}
+                className="bg-black border border-yellow-700/50 p-8 rounded-lg"
               >
-                <div className="text-yellow-400 mb-4 group-hover:scale-110 transition-transform">
-                  {section.icon}
+                <div className="flex items-center mb-6">
+                  <div className="text-yellow-500 mr-4">{section.icon}</div>
+                  <h3 className="text-2xl font-bold">{section.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {section.title}
-                </h3>
-                <p className="text-gray-300 mb-6 text-sm">
-                  {section.description}
-                </p>
-                <ul className="space-y-2">
-                  {section.topics.map((topic, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center text-gray-400 text-sm"
-                    >
-                      <CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
-                      {topic}
+                <ul className="space-y-3">
+                  {section.content.map((item, itemIndex) => (
+                    <li key={itemIndex} className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-yellow-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-300">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <button className="mt-6 w-full py-2 border border-yellow-500 text-yellow-400 rounded-lg hover:bg-yellow-500/10 transition-all duration-300">
-                  Read Section
-                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Emergency Contacts */}
-      <section className="py-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-gray-900">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-yellow-100 mb-8 text-center">
-            Emergency Contacts
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {emergencyContacts.map((contact, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-6 border border-red-500/20 text-center"
-              >
-                <Phone className="w-8 h-8 text-red-400 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {contact.name}
-                </h3>
-                <p className="text-2xl font-bold text-red-400 mb-2">
-                  {contact.number}
-                </p>
-                <p className="text-gray-300 text-sm">{contact.description}</p>
+      {/* Emergency Procedures */}
+      <section className="py-20 bg-black">
+        <div className="w-[85%] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                Emergency Procedures
+              </h2>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">
+                      Accident Response
+                    </h3>
+                    <p className="text-gray-300">
+                      Ensure safety, call emergency services, document the
+                      incident, and contact support immediately.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">
+                      Medical Emergency
+                    </h3>
+                    <p className="text-gray-300">
+                      Call emergency services, provide first aid if trained, and
+                      notify support team.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">
+                      Vehicle Breakdown
+                    </h3>
+                    <p className="text-gray-300">
+                      Move to safe location, contact roadside assistance,
+                      arrange alternative transportation for passengers.
+                    </p>
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Safety Reminders */}
-      <section className="py-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-black">
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-gradient-to-r from-yellow-900/20 to-amber-900/20 rounded-2xl p-8 border border-yellow-500/20">
-            <div className="flex items-start gap-6">
-              <AlertTriangle className="w-12 h-12 text-yellow-400 flex-shrink-0 mt-1" />
-              <div>
-                <h2 className="text-2xl font-bold text-yellow-100 mb-4">
-                  Important Safety Reminders
-                </h2>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                    Always perform a pre-trip vehicle inspection before starting
-                    your shift
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                    Never drive under the influence of alcohol or drugs
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                    Maintain a safe following distance and obey all speed limits
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                    Keep your phone hands-free and avoid distractions while
-                    driving
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                    Report any safety concerns or incidents immediately to
-                    support
-                  </li>
-                </ul>
-              </div>
+            </div>
+            <div className="relative">
+              <Image
+                src="/professional-driver-service.webp"
+                alt="Emergency Procedures"
+                width={500}
+                height={400}
+                className="rounded-lg shadow-lg"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-gradient-to-r from-yellow-900/20 to-amber-900/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-yellow-100 mb-4">
-            Questions or Need Help?
+      {/* Resources */}
+      <section className="py-20">
+        <div className="w-[85%] mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Additional Resources
+            </h2>
+            <p className="text-xl text-gray-300">
+              Tools and resources to help you succeed
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-black border border-yellow-700/50 p-6 rounded-lg shadow-lg text-center">
+              <Eye className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-3">Training Videos</h3>
+              <p className="text-gray-300 mb-4">
+                Watch instructional videos on best practices and platform
+                features.
+              </p>
+              <button className="text-yellow-400 font-semibold hover:text-yellow-300">
+                Watch Now
+              </button>
+            </div>
+            <div className="bg-black border border-yellow-700/50 p-6 rounded-lg shadow-lg text-center">
+              <Download className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-3">Mobile App Guide</h3>
+              <p className="text-gray-300 mb-4">
+                Learn how to use the driver app effectively for maximum
+                efficiency.
+              </p>
+              <button className="text-yellow-400 font-semibold hover:text-yellow-300">
+                Download Guide
+              </button>
+            </div>
+            <div className="bg-black border border-yellow-700/50 p-6 rounded-lg shadow-lg text-center">
+              <Phone className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-3">Support Center</h3>
+              <p className="text-gray-300 mb-4">
+                Get help when you need it with our 24/7 support team.
+              </p>
+              <Link
+                href="/help"
+                className="text-yellow-400 font-semibold hover:text-yellow-300"
+              >
+                Contact Support
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-black text-white">
+        <div className="w-[85%] mx-auto text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            Ready to Start Driving?
           </h2>
-          <p className="text-gray-300 mb-8">
-            Our support team is available 24/7 to help you with any questions
-            about the driver handbook or your role with Lagos Drivers Link.
+          <p className="text-xl mb-8 text-gray-300">
+            Join our network of professional drivers and start earning with
+            Lagos Drivers Link.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black rounded-lg font-semibold text-lg hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300"
+              href="/driver-request"
+              className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
             >
-              <Phone className="w-5 h-5 mr-2" />
-              Contact Support
+              Apply to Drive
             </Link>
             <Link
-              href="/recruit"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-yellow-500 text-yellow-400 rounded-lg font-semibold text-lg hover:bg-yellow-500/10 transition-all duration-300"
+              href="/contact"
+              className="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 hover:text-black transition-colors"
             >
-              Join Our Team
+              Contact Us
             </Link>
           </div>
         </div>
@@ -322,7 +368,3 @@ export default function DriverHandbookPage() {
     </div>
   );
 }
-
-
-
-

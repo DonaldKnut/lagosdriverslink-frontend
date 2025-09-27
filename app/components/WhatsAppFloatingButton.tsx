@@ -3,7 +3,7 @@
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppFloatingButton() {
-  const whatsappNumber = "2347066208246"; // Without + and with country code
+  const whatsappNumber = "2349032702233"; // Without + and with country code
 
   return (
     <a

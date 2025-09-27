@@ -28,7 +28,7 @@ function FAQAccordion() {
         {
           question: "How do I book a driver?",
           answer:
-            "You can book a driver through our website or mobile app. Simply select your pickup and destination locations, choose your preferred time, and select from available drivers. You can also call our customer service line at +234 706 620 8246 for assistance with bookings.",
+            "You can book a driver through our website or mobile app. Simply select your pickup and destination locations, choose your preferred time, and select from available drivers. You can also call our customer service line at +234 903 270 2233 for assistance with bookings.",
         },
         {
           question: "What areas do you serve?",
@@ -108,7 +108,7 @@ function FAQAccordion() {
         {
           question: "I'm having trouble with the app. What should I do?",
           answer:
-            "If you're experiencing technical issues with our app, try updating to the latest version, clearing your app cache, or restarting your device. If problems persist, contact our technical support team at support@lagosdriverslink.com or call +234 706 620 8246.",
+            "If you're experiencing technical issues with our app, try updating to the latest version, clearing your app cache, or restarting your device. If problems persist, contact our technical support team at support@lagosdriverslink.com or call +234 903 270 2233.",
         },
         {
           question: "How do I update my profile information?",

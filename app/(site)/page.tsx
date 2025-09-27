@@ -65,11 +65,11 @@ export default async function HomePage() {
   return (
     <div>
       <HeroSection {...heroProps} />
-      <ProcessingFeesHighlight />
-      <SalaryPlansHighlight />
       <ExtraHighlightOne />
       <ExtraHighlightTwo />
       <FreerowSection {...freerowProps} />
+      <ProcessingFeesHighlight />
+      <SalaryPlansHighlight />
       <DriverHeroPromo />
       <HirePlansSection />
       <Testimonials />
