@@ -12,6 +12,7 @@ interface RequestBody {
   location: string;
   plan: string;
   additionalNotes?: string;
+  hasAccommodation?: boolean;
   confirmationEmail: {
     html: string;
   };
@@ -28,6 +29,7 @@ interface SanityDocument {
   location: string;
   plan: string;
   additionalNotes?: string;
+  hasAccommodation?: boolean;
   status: string;
   createdAt: string;
   vehicleDetails?: {
@@ -87,6 +89,7 @@ export async function POST(request: Request) {
       location,
       plan,
       additionalNotes,
+      hasAccommodation,
       confirmationEmail,
       teamEmail,
     } = requestBody;
@@ -118,6 +121,7 @@ export async function POST(request: Request) {
       location,
       plan,
       additionalNotes,
+      hasAccommodation: hasAccommodation || false,
       status: "pending",
       createdAt: new Date().toISOString(),
       // Note: vehicleDetails and user fields are optional and can be added later

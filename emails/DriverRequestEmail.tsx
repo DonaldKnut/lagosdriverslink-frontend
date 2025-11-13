@@ -18,6 +18,8 @@ type Props = {
   phone: string;
   location: string;
   requestDetails: string;
+  plan?: string;
+  hasAccommodation?: boolean;
 };
 
 export default function DriverRequestEmail({
@@ -26,6 +28,8 @@ export default function DriverRequestEmail({
   phone,
   location,
   requestDetails,
+  plan,
+  hasAccommodation,
 }: Props) {
   return (
     <Html>
@@ -76,6 +80,32 @@ export default function DriverRequestEmail({
                   <Text style={value}>{location}</Text>
                 </Column>
               </Row>
+              {plan && (
+                <Row style={rowSpacing}>
+                  <Column width="50%">
+                    <Text style={label}>Selected Plan</Text>
+                    <Text style={value}>
+                      {plan === "daily"
+                        ? "Daily Driver"
+                        : plan === "weekday"
+                        ? "Weekday Driver (Mon-Fri)"
+                        : plan === "weekdayPlus"
+                        ? "Weekday+ Driver (Mon-Sat)"
+                        : plan === "fullWeek"
+                        ? "Full Week Driver"
+                        : plan === "vipSpy"
+                        ? "VIP Spy Police Driver"
+                        : plan}
+                    </Text>
+                  </Column>
+                  <Column width="50%">
+                    <Text style={label}>Has Accommodation</Text>
+                    <Text style={value}>
+                      {hasAccommodation ? "Yes" : "No"}
+                    </Text>
+                  </Column>
+                </Row>
+              )}
             </Section>
 
             {/* Request Details */}

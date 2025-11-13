@@ -5,14 +5,10 @@ export default function HeroSection({
   heroTitle,
   heroSubtitle,
   heroImage,
-  ctaText,
-  ctaLink,
 }: {
   heroTitle: string;
   heroSubtitle: string;
   heroImage: string;
-  ctaText: string;
-  ctaLink: string;
 }) {
   return (
     <section className="min-h-[85vh] mt-[88px] flex flex-col-reverse md:flex-row items-center justify-between px-6 sm:px-12 md:px-16 lg:px-24 py-12 gap-8 bg-black transition-all duration-500">
@@ -38,16 +34,16 @@ export default function HeroSection({
 
         <div className="flex flex-col sm:flex-row gap-3 pt-1">
           <a
-            href={ctaLink}
+            href="/hire"
             className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black rounded-lg font-medium text-sm hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 shadow-md hover:shadow-yellow-500/50"
           >
-            {ctaText}
+            Get started
           </a>
           <a
-            href="/hire"
+            href="/faq"
             className="px-6 py-3 border border-yellow-500 text-yellow-300 rounded-lg font-medium text-sm hover:bg-yellow-500/10 transition-all duration-300"
           >
-            Need a Driver?
+            FAQs
           </a>
         </div>
 

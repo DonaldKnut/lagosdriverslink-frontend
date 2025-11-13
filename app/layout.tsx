@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import StructuredData from "./components/StructuredData";
+import { Providers } from "./providers";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Lagos Drivers Link",
   },
   description:
-    "Professional Drivers - Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
+    "Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
   keywords: [
     "Lagos drivers",
     "professional drivers Lagos",
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
     title:
       "Professional Drivers Lagos - Hire a Pro Driver in Lagos | Lagos Drivers Link",
     description:
-      "Professional Drivers - Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
+      "Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
     siteName: "Lagos Drivers Link",
     images: [
       {
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
     title:
       "Professional Drivers Lagos - Hire a Pro Driver in Lagos | Lagos Drivers Link",
     description:
-      "Professional Drivers - Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
+      "Hire a Pro Driver in Lagos. Pre-vetted professionals for all driving needs.",
     images: ["/og-image.jpg"],
     creator: "@lagosdriverslink",
   },
@@ -94,11 +95,12 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -112,7 +114,9 @@ export default function RootLayout({
         <StructuredData type="LocalBusiness" data={{}} />
         <StructuredData type="Service" data={{}} />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

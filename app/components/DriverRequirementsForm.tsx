@@ -18,6 +18,7 @@ interface SalaryRates {
   weekdays: number;
   weekdaysSaturday: number;
   fullWeek: number;
+  spyPolice: number;
   shift: number;
 }
 
@@ -98,6 +99,9 @@ export default function DriverRequirementsForm({
             </option>
             <option value="fullWeek">
               Monday-Sunday (₦{salaryRates.fullWeek.toLocaleString()})
+            </option>
+            <option value="spyPolice">
+              Spy Police Driver (₦{salaryRates.spyPolice.toLocaleString()})
             </option>
             <option value="shift">
               Daily Service (₦{salaryRates.shift.toLocaleString()})

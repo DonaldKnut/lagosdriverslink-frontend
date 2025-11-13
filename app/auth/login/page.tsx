@@ -5,7 +5,7 @@ import { LockKeyhole, Mail, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/app/components/Toast";
+import { useToast, Toast } from "@/app/components/Toast";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,26 +17,60 @@ export default function LoginPage() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setIsLoading(true);
-
-    const res = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-
-    if (res?.ok) {
-      trigger("success", "Logged in successfully!");
-      router.push("/dashboard");
-    } else {
-      trigger("error", "Invalid email or password.");
+    
+    // Basic validation
+    if (!email || !password) {
+      trigger("error", "Please enter both email and password.");
+      return;
     }
 
-    setIsLoading(false);
+    setIsLoading(true);
+
+    try {
+      const res = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (res?.ok) {
+        trigger("success", "Logged in successfully! Redirecting...");
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 1000);
+      } else {
+        // Handle different error scenarios
+        let errorMessage = "Invalid email or password.";
+        
+        if (res?.error) {
+          if (res.error === "CredentialsSignin") {
+            errorMessage = "Invalid email or password. Please check your credentials and try again.";
+          } else if (res.error.includes("401") || res.error.includes("Unauthorized")) {
+            errorMessage = "Invalid credentials. Please check your email and password.";
+          } else if (res.error.includes("404")) {
+            errorMessage = "Authentication service not found. Please try again later.";
+          } else {
+            errorMessage = res.error;
+          }
+        }
+        
+        trigger("error", errorMessage);
+      }
+    } catch (error) {
+      // Handle network errors or other exceptions
+      const errorMessage = error instanceof Error 
+        ? `Login error: ${error.message}` 
+        : "Unable to connect to server. Please check your internet connection and try again.";
+      trigger("error", errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div className="text-white w-full max-w-md mx-auto">
+    <>
+      <Toast />
+      <div className="text-white w-full max-w-md mx-auto">
       <div className="mb-6">
         <Link
           href="/"
@@ -162,6 +196,7 @@ export default function LoginPage() {
           </Link>
         </p>
       </form>
-    </div>
+      </div>
+    </>
   );
 }

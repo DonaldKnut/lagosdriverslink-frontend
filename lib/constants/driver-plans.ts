@@ -1,52 +1,44 @@
 export const driverPlans = {
   daily: {
     id: "daily",
-    name: "Daily Driver",
-    description: "Professional driver for daily commutes",
+    name: "Daily Driver Service",
+    description:
+      "Perfect for one-time needs or short-term requirements. Book by the day for maximum flexibility.",
     baseRate: 30000,
-    features: ["8-hour service", "Flexible scheduling", "Professional vehicle"],
+    features: [
+      "8-hour minimum",
+      "Flexible scheduling",
+      "Professional demeanor",
+      "Basic route knowledge",
+      "Same-day booking available",
+    ],
   },
   weekday: {
     id: "weekday",
-    name: "Weekday Driver",
-    description: "Monday to Friday driver service",
-    baseRate: 155000,
-    features: ["5-day service", "Consistent scheduling", "Premium vehicle"],
+    name: "Weekday Driver (Mon-Fri)",
+    description:
+      "Professional driver for your weekday needs. Perfect for work commutes and business meetings.",
+    baseRate: 175000,
+    features: [
+      "Daily schedule",
+      "Familiarity with Lagos routes",
+      "Defensive driving",
+      "Background checked & verified",
+      "Neat Appearance",
+    ],
   },
   weekdayPlus: {
     id: "weekdayPlus",
-    name: "Weekday+ Driver",
-    description: "Extended weekday service with additional benefits",
-    baseRate: 175000,
+    name: "Weekday+ Driver (Mon-Sat)",
+    description:
+      "Extended coverage including Saturdays. Ideal for professionals with weekend commitments.",
+    baseRate: 195000,
     features: [
-      "5-day service",
-      "Extended hours",
-      "Luxury vehicle",
-      "Priority support",
-    ],
-  },
-  fullWeek: {
-    id: "fullWeek",
-    name: "Full Week Driver",
-    description: "Complete weekly driver service",
-    baseRate: 200000,
-    features: [
-      "7-day service",
-      "24/7 availability",
-      "Premium vehicle",
-      "Dedicated support",
-    ],
-  },
-  vipSpy: {
-    id: "vipSpy",
-    name: "VIP Spy Police Driver",
-    description: "Elite security-trained driver service",
-    baseRate: 300000,
-    features: [
-      "Security clearance",
-      "VIP treatment",
-      "Armored vehicle",
-      "24/7 protection",
+      "Defensive driving",
+      "Flexible scheduling",
+      "Professional demeanor",
+      "Basic route knowledge",
+      "Saturday coverage included",
     ],
   },
 } as const;
@@ -59,5 +51,3 @@ export const salaryRates = {
 
 export type DriverPlanId = keyof typeof driverPlans;
 export type DriverPlan = (typeof driverPlans)[DriverPlanId];
-
-

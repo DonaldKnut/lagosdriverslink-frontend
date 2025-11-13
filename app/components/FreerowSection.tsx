@@ -3,13 +3,13 @@
 export default function HeroSection({
   heroTitle,
   heroSubtitle,
-  ctaText,
-  ctaLink,
+  ctaText = "Get started",
+  ctaLink = "/hire",
 }: {
   heroTitle: string;
   heroSubtitle: string;
-  ctaText: string;
-  ctaLink: string;
+  ctaText?: string;
+  ctaLink?: string;
 }) {
   // Hardcoded service areas
   const serviceAreas = [

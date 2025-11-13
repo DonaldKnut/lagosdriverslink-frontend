@@ -15,6 +15,7 @@ interface FormData {
   location: string;
   additionalNotes: string;
   plan: string;
+  hasAccommodation: boolean;
 }
 
 export default function DriverRequestForm() {
@@ -29,6 +30,7 @@ export default function DriverRequestForm() {
     location: "",
     additionalNotes: "",
     plan,
+    hasAccommodation: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,6 +40,20 @@ export default function DriverRequestForm() {
   useEffect(() => {
     setFormData((prev) => ({ ...prev, plan }));
   }, [plan]);
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+    
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,6 +77,8 @@ export default function DriverRequestForm() {
             phone={formData.phone}
             location={formData.location}
             requestDetails={formData.additionalNotes}
+            plan={formData.plan}
+            hasAccommodation={formData.hasAccommodation}
           />
         ),
       ]);
@@ -89,6 +107,7 @@ export default function DriverRequestForm() {
         location: "",
         additionalNotes: "",
         plan,
+        hasAccommodation: false,
       });
 
       setTimeout(() => router.push("/thank-you"), 2000);
@@ -139,15 +158,31 @@ export default function DriverRequestForm() {
             id="fullName"
             name="fullName"
             value={formData.fullName}
-            onChange={(e) =>
-              setFormData({ ...formData, fullName: e.target.value })
-            }
+            onChange={handleChange}
             className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
             required
           />
         </div>
 
         {/* Add other form fields similarly */}
+
+        <div>
+          <label className="flex items-center space-x-2 cursor-pointer">
+            <input
+              type="checkbox"
+              name="hasAccommodation"
+              checked={formData.hasAccommodation || false}
+              onChange={handleChange}
+              className="w-4 h-4 text-yellow-500 bg-gray-800 border-gray-700 rounded focus:ring-yellow-500"
+            />
+            <span className="text-sm text-gray-300">
+              Has Accommodation for Driver
+            </span>
+          </label>
+          <p className="text-xs text-gray-400 mt-1 ml-6">
+            Check this if you have accommodation available for the driver
+          </p>
+        </div>
 
         {submitError && (
           <div className="p-4 bg-red-500/20 text-red-300 rounded-lg text-center">

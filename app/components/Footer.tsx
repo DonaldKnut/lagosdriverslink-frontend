@@ -88,7 +88,7 @@ export default function PremiumFooter() {
             </Link>
             <p className="text-gray-300 mb-6 mt-6">
               Connecting you with trusted professional <br /> drivers in Lagos
-              since 2025.
+              since 2023.
             </p>
             <div className="flex space-x-4">
               <a

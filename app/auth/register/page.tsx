@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/app/components/Toast";
+import { useToast, Toast } from "@/app/components/Toast";
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -83,23 +83,54 @@ export default function RegisterPage() {
         }),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        // If response is not JSON, create a default error message
+        trigger("error", `Registration failed: ${response.status === 401 ? "Invalid credentials" : response.status === 404 ? "Service not found" : response.status === 409 ? "Email already exists" : `Server error (${response.status})`}`);
+        setIsLoading(false);
+        return;
+      }
 
       if (!response.ok) {
-        trigger("error", data.error || "Something went wrong.");
+        // Handle specific error codes
+        let errorMessage = data.error || "Something went wrong.";
+        
+        if (response.status === 401) {
+          errorMessage = "Invalid credentials. Please check your email and try again.";
+        } else if (response.status === 404) {
+          errorMessage = "Registration service not found. Please try again later.";
+        } else if (response.status === 409) {
+          errorMessage = "This email is already registered. Please use a different email or sign in.";
+        } else if (response.status === 400) {
+          errorMessage = data.error || "Please check all fields and try again.";
+        } else if (response.status === 500) {
+          errorMessage = "Server error. Please try again later.";
+        }
+        
+        trigger("error", errorMessage);
       } else {
-        trigger("success", "Account created successfully!");
-        router.push("/auth/login");
+        trigger("success", "Account created successfully! Redirecting to login...");
+        setTimeout(() => {
+          router.push("/auth/login");
+        }, 1500);
       }
-    } catch {
-      trigger("error", "An unexpected error occurred.");
+    } catch (error) {
+      // Handle network errors or other exceptions
+      const errorMessage = error instanceof Error 
+        ? `Network error: ${error.message}` 
+        : "Unable to connect to server. Please check your internet connection and try again.";
+      trigger("error", errorMessage);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-4 py-10 text-white">
+    <>
+      <Toast />
+      <div className="w-full max-w-md mx-auto px-4 py-10 text-white">
       <div className="mb-6">
         <Link
           href="/"
@@ -293,6 +324,7 @@ export default function RegisterPage() {
           </Link>
         </p>
       </form>
-    </div>
+      </div>
+    </>
   );
 }

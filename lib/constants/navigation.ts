@@ -20,3 +20,4 @@ export type AuthRoute = (typeof authRoutes)[number];
 export type ProtectedRoute = (typeof protectedRoutes)[number];
 
 
+

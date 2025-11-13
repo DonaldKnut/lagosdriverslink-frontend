@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from "next/server";
 import { sanityClient } from "@/lib/sanity";
 import { sendDriverRequestMail, sendCustomerEmail } from "@/utils/mail";
 
+// Helper function to format work schedule for email display
+function formatWorkScheduleForEmail(schedule: string, salaryPackage: string): string {
+  const scheduleMap: Record<string, string> = {
+    weekdays: `Monday-Friday (₦${parseInt(salaryPackage || "0").toLocaleString()})`,
+    weekdaysSaturday: `Monday-Saturday (₦${parseInt(salaryPackage || "0").toLocaleString()})`,
+    fullWeek: `Monday-Sunday (₦${parseInt(salaryPackage || "0").toLocaleString()})`,
+    spyPolice: `Spy Police Driver (₦${parseInt(salaryPackage || "0").toLocaleString()})`,
+    shift: `Daily Service (₦${parseInt(salaryPackage || "0").toLocaleString()})`,
+  };
+  return scheduleMap[schedule] || schedule;
+}
+
 export async function POST(req: NextRequest) {
   const startTime = Date.now();
   console.log("🚀 Hire API called at:", new Date().toISOString());
@@ -62,7 +74,7 @@ export async function POST(req: NextRequest) {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 14px; color: #374151;">
               <div><strong>Driver Type:</strong> ${projectDetails.driverType}</div>
               <div><strong>Contract Duration:</strong> ${projectDetails.contractDuration}</div>
-              <div><strong>Work Schedule:</strong> ${projectDetails.workSchedule}</div>
+              <div><strong>Work Schedule:</strong> ${formatWorkScheduleForEmail(projectDetails.workSchedule, projectDetails.salaryPackage)}</div>
               <div><strong>Resumption Date:</strong> ${projectDetails.resumptionDate}</div>
               <div><strong>Start Time:</strong> ${projectDetails.resumptionTime}</div>
               <div><strong>End Time:</strong> ${projectDetails.closingTime}</div>
@@ -103,9 +115,15 @@ export async function POST(req: NextRequest) {
                 <strong>Home Address:</strong><br>
                 ${addressInformation.homeAddress}
               </div>
-              <div>
+              <div style="margin-bottom: 12px;">
                 <strong>Office Address:</strong><br>
                 ${addressInformation.officeAddress}
+              </div>
+              <div style="margin-top: 16px; padding: 12px; background: ${addressInformation.hasAccommodation ? "#d1fae5" : "#fee2e2"}; border-radius: 6px; border-left: 4px solid ${addressInformation.hasAccommodation ? "#10b981" : "#ef4444"};">
+                <strong style="color: #1f2937;">Has Accommodation for Driver:</strong>
+                <span style="color: ${addressInformation.hasAccommodation ? "#059669" : "#dc2626"}; font-weight: 600; margin-left: 8px;">
+                  ${addressInformation.hasAccommodation ? "✅ Yes" : "❌ No"}
+                </span>
               </div>
             </div>
           </div>
@@ -136,6 +154,7 @@ export async function POST(req: NextRequest) {
         phone: personalDetails.phoneNumber,
         location: "Not specified", // Since preferredDriverLocation was removed
         requestDetails: requestDetailsHtml.replace(/<[^>]+>/g, ""), // Store plain text version in Sanity
+        hasAccommodation: addressInformation.hasAccommodation || false,
         submittedAt: new Date().toISOString(),
       });
       console.log(

@@ -36,6 +36,7 @@ type FormData = {
   location: string;
   additionalNotes: string;
   plan: string;
+  hasAccommodation: boolean;
 };
 
 export default function RefactoredDriverRequestForm() {
@@ -60,6 +61,7 @@ export default function RefactoredDriverRequestForm() {
     location: "",
     additionalNotes: "",
     plan: plan,
+    hasAccommodation: false,
   };
 
   const validationRules = {
@@ -101,6 +103,8 @@ export default function RefactoredDriverRequestForm() {
             phone={formData.get("phone") as string}
             location={formData.get("location") as string}
             requestDetails={formData.get("additionalNotes") as string}
+            plan={formData.get("plan") as string}
+            hasAccommodation={formData.get("hasAccommodation") === "true"}
           />
         ),
       ]);
@@ -221,6 +225,22 @@ export default function RefactoredDriverRequestForm() {
           placeholder="Any specific requirements..."
           icon={Pen}
         />
+
+        <div>
+          <label className="flex items-center space-x-2 cursor-pointer">
+            <input
+              type="checkbox"
+              name="hasAccommodation"
+              className="w-4 h-4 text-yellow-500 bg-gray-800 border-gray-700 rounded focus:ring-yellow-500"
+            />
+            <span className="text-sm text-yellow-300">
+              Has Accommodation for Driver
+            </span>
+          </label>
+          <p className="text-xs text-gray-400 mt-1 ml-6">
+            Check this if you have accommodation available for the driver
+          </p>
+        </div>
 
         <FormSubmitButton
           className="w-full py-3 px-4 rounded-lg font-semibold text-black bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 focus:ring-offset-gray-900 transition-all duration-200"

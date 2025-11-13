@@ -1,10 +1,12 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { motion, Variants } from "framer-motion";
 import { CheckCircle, ChevronRight, Home } from "lucide-react";
 import Link from "next/link";
+import { useEffect, Suspense } from "react";
+import { Notification, useNotification } from "../components/Notification";
 
 // Force dynamic rendering to disable prerendering
 export const dynamic = "force-dynamic";
@@ -34,10 +36,47 @@ const pulseAnimation: Variants = {
   },
 };
 
-export default function ThankYouPage() {
+function ThankYouContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const session = useSession();
   const authenticationStatus = session?.status ?? "loading";
+  const { notification, showSuccess, showError, hideNotification } =
+    useNotification();
+
+  // Check for API response data in URL params and show notification
+  useEffect(() => {
+    const success = searchParams.get("success");
+    const requestId = searchParams.get("requestId");
+    const processingTime = searchParams.get("processingTime");
+    const error = searchParams.get("error");
+
+    if (success === "true" && requestId) {
+      showSuccess(
+        "Request Submitted Successfully!",
+        "Your service request has been received and processed. Our team will contact you within 24 hours.",
+        {
+          requestId,
+          processingTime: processingTime || undefined,
+        }
+      );
+    } else if (success === "false" || error) {
+      showError(
+        "Request Failed",
+        error || "There was an error processing your request. Please try again or contact support.",
+        {
+          error: error || undefined,
+          processingTime: processingTime || undefined,
+        }
+      );
+    } else {
+      // Default success message if no params
+      showSuccess(
+        "Request Confirmed!",
+        "Your driver request has been received. Our team will contact you within 24 hours to confirm details and next steps."
+      );
+    }
+  }, [searchParams, showSuccess, showError]);
 
   const handleDashboardClick = (event: React.MouseEvent) => {
     if (authenticationStatus !== "authenticated") {
@@ -58,6 +97,7 @@ export default function ThankYouPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center p-4">
+      <Notification notification={notification} onClose={hideNotification} />
       <motion.div
         className="w-full max-w-4xl bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl border border-gray-700/30"
         initial="hidden"
@@ -157,5 +197,19 @@ export default function ThankYouPage() {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+export default function ThankYouPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center">
+          <div className="animate-pulse text-yellow-400 text-lg">Loading...</div>
+        </div>
+      }
+    >
+      <ThankYouContent />
+    </Suspense>
   );
 }

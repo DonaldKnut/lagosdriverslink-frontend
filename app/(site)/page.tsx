@@ -12,6 +12,8 @@ import ExtraHighlightTwo from "../components/ExtraHighlightTwo";
 import { HomepageData } from "@/types/homepage";
 import { DriverHeroPromo } from "../components/DriverHeroPromo";
 import FreerowSection from "../components/FreerowSection";
+import { OtherServicesPromo } from "../components/OtherServicesPromo";
+import { DomesticStaffPromo } from "../components/DomesticStaffPromo";
 
 // Fallback image
 const BASE_URL = process.env.NEXTAUTH_URL || "https://lagosdriverslink.com";
@@ -44,24 +46,20 @@ export default async function HomePage() {
   // Common props for both HeroSection and FreerowSection
   const heroProps = {
     heroTitle:
-      data?.heroTitle ?? "Professional Drivers - Hire a Pro Driver in Lagos",
+      data?.heroTitle ?? "Hire a Pro Driver in Lagos",
     heroSubtitle:
       data?.heroSubtitle ?? "Pre-vetted professionals for all driving needs",
     heroImage:
       data?.heroImage?.asset?.url ??
       `${BASE_URL}/Whisk_cto1gtyyqgn4kjm40inxedotuwy3qtlhr2yi1yy.jpeg`,
-    ctaText: data?.ctaText ?? "Book a Driver",
-    ctaLink: data?.ctaLink ?? "/hire",
   };
 
   const freerowProps = {
-    heroTitle: "Professional Drivers - Hire a Pro Driver in Lagos",
+    heroTitle: "Hire a Pro Driver in Lagos",
     heroSubtitle: "Pre-vetted professionals for all driving needs",
     heroImage:
       data?.heroImage?.asset?.url ??
       `${BASE_URL}/Whisk_cto1gtyyqgn4kjm40inxedotuwy3qtlhr2yi1yy.jpeg`,
-    ctaText: data?.ctaText ?? "Book a Driver",
-    ctaLink: data?.ctaLink ?? "/hire",
   };
 
   return (
@@ -69,6 +67,8 @@ export default async function HomePage() {
       <HeroSection {...heroProps} />
       <ExtraHighlightOne />
       <ExtraHighlightTwo />
+      <OtherServicesPromo />
+      <DomesticStaffPromo />
       <FreerowSection {...freerowProps} />
       <ProcessingFeesHighlight />
       <SalaryPlansHighlight />

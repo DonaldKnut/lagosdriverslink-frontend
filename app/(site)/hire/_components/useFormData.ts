@@ -34,6 +34,7 @@ interface VehicleDetails {
 interface AddressInformation {
   homeAddress: string;
   officeAddress: string;
+  hasAccommodation: boolean;
 }
 
 // Rename to FormDataType to match the import, or keep as FormData
@@ -54,7 +55,7 @@ const initialFormData: FormDataType = {
   projectDetails: {
     driverType: "personal",
     contractDuration: "6-months",
-    salaryPackage: "155000",
+    salaryPackage: "175000",
     workSchedule: "weekdays",
     dutiesDescription: "",
     resumptionDate: "",
@@ -73,13 +74,15 @@ const initialFormData: FormDataType = {
   addressInformation: {
     homeAddress: "",
     officeAddress: "",
+    hasAccommodation: false,
   },
 };
 
 const salaryRates = {
-  weekdays: 155000,
-  weekdaysSaturday: 175000,
-  fullWeek: 200000,
+  weekdays: 175000,
+  weekdaysSaturday: 195000,
+  fullWeek: 225000,
+  spyPolice: 275000,
   shift: 30000,
 };
 
@@ -92,24 +95,27 @@ export default function useFormData() {
     >,
     section: keyof FormDataType
   ) => {
-    const { name, value } = event.target;
+    const { name, value, type } = event.target;
+    const checked = (event.target as HTMLInputElement).checked;
 
     if (section === "projectDetails" && name === "workSchedule") {
-      setFormData((previousData) => ({
-        ...previousData,
-        projectDetails: {
-          ...previousData.projectDetails,
-          workSchedule: value,
-          salaryPackage:
-            salaryRates[value as keyof typeof salaryRates].toString(),
-        },
-      }));
+      const rate = salaryRates[value as keyof typeof salaryRates];
+      if (rate) {
+        setFormData((previousData) => ({
+          ...previousData,
+          projectDetails: {
+            ...previousData.projectDetails,
+            workSchedule: value,
+            salaryPackage: rate.toString(),
+          },
+        }));
+      }
     } else {
       setFormData((previousData) => ({
         ...previousData,
         [section]: {
           ...previousData[section],
-          [name]: value,
+          [name]: type === "checkbox" ? checked : value,
         },
       }));
     }

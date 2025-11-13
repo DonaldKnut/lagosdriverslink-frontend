@@ -14,9 +14,10 @@ import { getSectionStatus } from "./_components/formValidation";
 type FormSection = "personal" | "driver" | "vehicle" | "address";
 
 const salaryRates = {
-  weekdays: 155000,
-  weekdaysSaturday: 175000,
-  fullWeek: 200000,
+  weekdays: 175000,
+  weekdaysSaturday: 195000,
+  fullWeek: 225000,
+  spyPolice: 275000,
   shift: 30000,
 };
 
@@ -34,21 +35,53 @@ export default function HireDriverPage() {
     []
   );
 
-  // Auto-advance to next section when current section is completed
+  // Track when user last interacted with the form to prevent auto-advance while typing
+  const [lastInteractionTime, setLastInteractionTime] = useState<number>(Date.now());
+  const [isUserTyping, setIsUserTyping] = useState<boolean>(false);
+
+  // Update interaction time when form data changes
   useEffect(() => {
-    if (currentSectionValidation.isValid && activeSection !== "address") {
+    const now = Date.now();
+    setLastInteractionTime(now);
+    setIsUserTyping(true);
+    
+    // Clear typing flag after user stops typing for 3 seconds
+    const typingTimer = setTimeout(() => {
+      setIsUserTyping(false);
+    }, 3000);
+    
+    return () => clearTimeout(typingTimer);
+  }, [formData]);
+
+  // Auto-advance to next section only when:
+  // 1. Section is valid
+  // 2. User has stopped typing for at least 3 seconds
+  // 3. Not on the last section
+  // 4. User hasn't manually navigated recently
+  useEffect(() => {
+    const timeSinceLastInteraction = Date.now() - lastInteractionTime;
+    const shouldAutoAdvance = 
+      currentSectionValidation.isValid && 
+      activeSection !== "address" &&
+      !isUserTyping &&
+      timeSinceLastInteraction >= 3000;
+
+    if (shouldAutoAdvance) {
       const currentIndex = formSections.findIndex(
         (section) => section === activeSection
       );
       if (currentIndex < formSections.length - 1) {
-        // Add a small delay for better UX
+        // Add a delay before auto-advancing to give user time to see completion
         const timer = setTimeout(() => {
-          setActiveSection(formSections[currentIndex + 1]);
-        }, 500);
+          // Double-check user hasn't started typing again
+          if (Date.now() - lastInteractionTime >= 3000 && !isUserTyping) {
+            setActiveSection(formSections[currentIndex + 1]);
+          }
+        }, 1500);
         return () => clearTimeout(timer);
       }
     }
-  }, [currentSectionValidation.isValid, activeSection, formSections]);
+  }, [currentSectionValidation.isValid, activeSection, formSections, isUserTyping, lastInteractionTime]);
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-zinc-900 to-black text-white py-24 px-6 sm:px-12">

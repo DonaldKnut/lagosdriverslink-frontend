@@ -28,6 +28,7 @@ type FormData = {
   location: string;
   additionalNotes: string;
   plan: string;
+  hasAccommodation: boolean;
 };
 
 type FormErrors = Partial<Record<keyof FormData, string>> & {
@@ -53,6 +54,7 @@ export default function DriverRequestForm() {
     location: "",
     additionalNotes: "",
     plan: "daily",
+    hasAccommodation: false,
   });
 
   useEffect(() => {
@@ -68,8 +70,13 @@ export default function DriverRequestForm() {
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+    
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
 
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -124,6 +131,8 @@ export default function DriverRequestForm() {
             phone={formData.phone}
             location={formData.location}
             requestDetails={formData.additionalNotes}
+            plan={formData.plan}
+            hasAccommodation={formData.hasAccommodation}
           />
         ),
       ]);
@@ -139,9 +148,12 @@ export default function DriverRequestForm() {
       });
 
       if (!response.ok) {
-        throw new Error(await response.text());
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.error || "Failed to submit request";
+        throw new Error(errorMessage);
       }
 
+      const responseData = await response.json();
       setSuccess(true);
       setFormData({
         fullName: "",
@@ -150,17 +162,36 @@ export default function DriverRequestForm() {
         location: "",
         additionalNotes: "",
         plan,
+        hasAccommodation: false,
       });
 
-      setTimeout(() => router.push("/thank-you"), 2000);
+      // Build URL with response data
+      const params = new URLSearchParams({
+        success: "true",
+        ...(responseData.requestId && { requestId: responseData.requestId }),
+        ...(responseData.processingTime && {
+          processingTime: responseData.processingTime,
+        }),
+      });
+
+      setTimeout(() => router.push(`/thank-you?${params.toString()}`), 2000);
     } catch (error) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "An unexpected error occurred. Please try again.";
+
       setErrors({
         ...errors,
-        form:
-          error instanceof Error
-            ? error.message
-            : "An unexpected error occurred. Please try again.",
+        form: errorMessage,
       });
+
+      // Navigate to thank-you page with error info
+      const params = new URLSearchParams({
+        success: "false",
+        error: errorMessage,
+      });
+      setTimeout(() => router.push(`/thank-you?${params.toString()}`), 2000);
     } finally {
       setIsSubmitting(false);
     }
@@ -183,12 +214,62 @@ export default function DriverRequestForm() {
           <Car className="h-10 w-10 text-yellow-500" aria-hidden="true" />
         </div>
         <h1 className="text-3xl font-extrabold text-yellow-100">
-          Hire a Professional Driver - Get a Pro Driver in Lagos
+          Hire a Pro Driver in Lagos
         </h1>
         <p className="text-yellow-200 mt-1 text-sm">
-          Professional drivers, hire a professional driver, get a pro driver in
-          Lagos. Recruit professional drivers and hire a pro driver in Lagos.
-          Fill out the details to request your {plan} driver service
+          Pre-vetted professionals for all driving needs. Choose your preferred
+          plan below or use the general form.
+        </p>
+      </div>
+
+      {/* Plan Selection Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <Link
+          href="/driver-request/daily"
+          className="block p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-yellow-500 transition-colors"
+        >
+          <h3 className="text-lg font-semibold text-yellow-400 mb-2">
+            Daily Driver
+          </h3>
+          <p className="text-2xl font-bold text-white mb-1">₦30,000</p>
+          <p className="text-sm text-gray-400">/day</p>
+          <p className="text-xs text-gray-300 mt-2">
+            Perfect for one-time needs
+          </p>
+        </Link>
+
+        <Link
+          href="/driver-request/weekday"
+          className="block p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-yellow-500 transition-colors"
+        >
+          <h3 className="text-lg font-semibold text-yellow-400 mb-2">
+            Weekday Driver
+          </h3>
+          <p className="text-2xl font-bold text-white mb-1">₦175,000</p>
+          <p className="text-sm text-gray-400">/month</p>
+          <p className="text-xs text-gray-300 mt-2">
+            Mon-Fri professional service
+          </p>
+        </Link>
+
+        <Link
+          href="/driver-request/weekdayPlus"
+          className="block p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-yellow-500 transition-colors"
+        >
+          <h3 className="text-lg font-semibold text-yellow-400 mb-2">
+            Weekday+ Driver
+          </h3>
+          <p className="text-2xl font-bold text-white mb-1">₦195,000</p>
+          <p className="text-sm text-gray-400">/month</p>
+          <p className="text-xs text-gray-300 mt-2">
+            Mon-Sat extended coverage
+          </p>
+        </Link>
+      </div>
+
+      <div className="text-center mb-6">
+        <p className="text-yellow-300 text-sm">
+          Or use the general form below to submit your request
         </p>
       </div>
 
@@ -324,14 +405,15 @@ export default function DriverRequestForm() {
               value={formData.plan}
               onChange={handleChange}
               className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none"
-              disabled
               aria-label="Selected driver plan"
             >
-              <option value="daily">Daily Driver</option>
-              <option value="weekday">Weekday Driver</option>
-              <option value="weekdayPlus">Weekday+ Driver</option>
-              <option value="fullWeek">Full Week Driver</option>
-              <option value="vipSpy">VIP Spy Police Driver</option>
+              <option value="daily">Daily Driver Service - ₦30,000/day</option>
+              <option value="weekday">
+                Weekday Driver (Mon-Fri) - ₦175,000/month
+              </option>
+              <option value="weekdayPlus">
+                Weekday+ Driver (Mon-Sat) - ₦195,000/month
+              </option>
             </select>
           </div>
         </div>
@@ -359,6 +441,24 @@ export default function DriverRequestForm() {
               aria-label="Additional notes about your driver request"
             />
           </div>
+        </div>
+
+        <div>
+          <label className="flex items-center space-x-2 cursor-pointer">
+            <input
+              type="checkbox"
+              name="hasAccommodation"
+              checked={formData.hasAccommodation || false}
+              onChange={handleChange}
+              className="w-4 h-4 text-yellow-500 bg-gray-800 border-gray-700 rounded focus:ring-yellow-500"
+            />
+            <span className="text-sm text-yellow-300">
+              Has Accommodation for Driver
+            </span>
+          </label>
+          <p className="text-xs text-gray-400 mt-1 ml-6">
+            Check this if you have accommodation available for the driver
+          </p>
         </div>
 
         {errors.form && (
