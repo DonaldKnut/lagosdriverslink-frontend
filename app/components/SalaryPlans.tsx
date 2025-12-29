@@ -17,7 +17,7 @@ export default function SalaryPlans() {
     },
     {
       title: "Mon – Sun",
-      amount: "₦220,000",
+      amount: "₦225,000",
       subtitle: "Full week placement",
     },
   ];

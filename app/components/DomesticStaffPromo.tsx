@@ -4,8 +4,6 @@ import {
   Home, 
   ChefHat, 
   Baby, 
-  Scissors, 
-  Wrench, 
   ShieldCheck, 
   Clock, 
   Star, 
@@ -32,16 +30,6 @@ export function DomesticStaffPromo() {
       title: "Nannies",
       description: "Caring childcare providers",
     },
-    {
-      icon: <Scissors className="h-5 w-5" />,
-      title: "Tailors",
-      description: "Skilled fashion experts",
-    },
-    {
-      icon: <Wrench className="h-5 w-5" />,
-      title: "Plumbers",
-      description: "Licensed professionals",
-    },
   ];
 
   return (
@@ -63,7 +51,7 @@ export function DomesticStaffPromo() {
             Find trusted, vetted domestic staff for your home
           </p>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            From house cleaners to nannies, chefs to tailors - we connect you with qualified professionals
+            From house cleaners to nannies and chefs - we connect you with qualified professionals
           </p>
         </div>
 

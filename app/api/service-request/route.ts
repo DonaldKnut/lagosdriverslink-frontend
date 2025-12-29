@@ -123,8 +123,6 @@ export async function POST(request: Request) {
       "Chef",
       "Nanny",
       "Teacher",
-      "Tailor",
-      "Plumber",
     ];
     
     const doc: SanityDocument = {

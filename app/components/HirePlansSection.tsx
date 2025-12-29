@@ -55,7 +55,7 @@ const packages = [
   },
   {
     title: "Full Week Driver (Mon-Sun)",
-    price: "₦220,000",
+    price: "₦225,000",
     description:
       "Complete 7-day coverage for those needing full-time personal driver services.",
     features: [
@@ -70,7 +70,7 @@ const packages = [
   },
   {
     title: "VIP Spy Police Driver",
-    price: "₦250,000",
+    price: "₦280,000",
     description:
       "Elite driver with police training for confidential transportation. Discreet yet secure service for high-profile individuals.",
     features: [

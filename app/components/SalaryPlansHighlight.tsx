@@ -27,14 +27,14 @@ export default function SalaryPlansHighlight() {
     },
     {
       title: "Mon – Sun",
-      amount: "₦220,000",
+      amount: "₦225,000",
       subtitle: "Full week placement",
       popular: false,
       icon: <Calendar className="w-5 h-5 text-yellow-400" />,
     },
     {
       title: "VIP Spy Police Driver",
-      amount: "₦250,000",
+      amount: "₦280,000",
       subtitle: "Premium security service",
       popular: false,
       icon: <Shield className="w-5 h-5 text-yellow-400" />,

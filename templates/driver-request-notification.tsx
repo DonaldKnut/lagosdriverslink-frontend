@@ -34,8 +34,8 @@ const planDescriptions: Record<string, string> = {
   daily: "Daily Driver Service (₦30,000 per day)",
   weekday: "Weekday Driver Service (₦175,000 per month)",
   weekdayPlus: "Weekday+ Driver Service (₦195,000 per month)",
-  fullWeek: "Full Week Driver Service (₦220,000 per month)",
-  vipSpy: "VIP Security Driver Service (₦250,000 per month)",
+  fullWeek: "Full Week Driver Service (₦225,000 per month)",
+  vipSpy: "VIP Security Driver Service (₦280,000 per month)",
 };
 
 export function DriverRequestNotificationEmail({

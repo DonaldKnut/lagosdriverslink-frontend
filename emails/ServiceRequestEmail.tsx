@@ -100,8 +100,6 @@ export default function ServiceRequestEmail({
                 "Chef",
                 "Nanny",
                 "Teacher",
-                "Tailor",
-                "Plumber",
               ];
               return domesticStaffTypes.includes(serviceType);
             })() && (

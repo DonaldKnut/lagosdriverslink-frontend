@@ -55,8 +55,6 @@ const domesticStaffTypes = [
   "Chef",
   "Nanny",
   "Teacher",
-  "Tailor",
-  "Plumber",
 ];
 
 export default function ServiceRequestForm() {

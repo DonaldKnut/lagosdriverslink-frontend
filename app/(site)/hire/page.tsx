@@ -17,7 +17,7 @@ const salaryRates = {
   weekdays: 175000,
   weekdaysSaturday: 195000,
   fullWeek: 225000,
-  spyPolice: 275000,
+  spyPolice: 280000,
   shift: 30000,
 };
 
