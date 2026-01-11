@@ -1,7 +1,7 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import { sanityClient } from "@/lib/sanity";
+import { getSanityClient } from "@/lib/sanity";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -12,7 +12,8 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const user = await sanityClient.fetch(
+        const client = getSanityClient();
+        const user = await client.fetch(
           `*[_type == "user" && email == $email][0]`,
           { email: credentials?.email }
         );
